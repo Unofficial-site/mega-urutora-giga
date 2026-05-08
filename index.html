@@ -1,46 +1,34 @@
 <!DOCTYPE html>
-
 <html lang="ja">
-
 <head>
     
 <link rel="icon" href="apple-touch-icon.png?v=1">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1">
 
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MUG-Source:Fan-Run Hub
-🐾</title>
-
+<title>MUG-Source:Fan-Run Hub 🐾</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-
 <style>
-
 /* PCでもスマホでも綺麗に見える動画設定 */
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9比率 */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     border-radius: 12px;
     margin-bottom: 2rem;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    
-    /* PC表示用の調整 */
-    max-width: 100%;     /* 基本は横幅いっぱい */
-    margin-left: auto;   /* 中央寄せ */
-    margin-right: auto;  /* 中央寄せ */
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* PC（画面が広い時）だけ動画の最大サイズを制限する設定 */
 @media (min-width: 768px) {
     .video-wrapper {
-        max-width: 500px; /* PCで見た時にデカすぎないサイズに固定 */
+        max-width: 500px;
     }
 }
 
@@ -51,11 +39,10 @@
     border: none;
 }
 
-
 /* 写真と余白の設定 */
 .image-box {
     text-align: center;
-    padding: 40px 0; /* これが上下の大きな余白だニャン！ */
+    padding: 40px 0;
 }
 .image-box img {
     width: 250px; 
@@ -66,515 +53,195 @@
     display: inline-block;
 }
 
-
-
 :root {
-
---primary: #A799B7; /* 薄紫（ラベンダー系） */
-
---dark: #6D5E7D; /* 深みのある薄紫 */
-
---light: #F9F7FA;
-
---accent: #E8E2EE; /* 淡い紫 */
-
---paw: #F2E9EB;
-
---mcd: #B5A17A;
-
---text: #5A545E;
-
---glass: rgba(255, 255, 255, 0.7);
-
+    --primary: #A799B7;
+    --dark: #6D5E7D;
+    --light: #F9F7FA;
+    --accent: #E8E2EE;
+    --paw: #F2E9EB;
+    --mcd: #B5A17A;
+    --text: #5A545E;
+    --glass: rgba(255, 255, 255, 0.7);
 }
-
-
 
 body {
-
-font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-
-background-color: var(--light);
-
-color: var(--text);
-
-margin: 0; padding: 0;
-
-overflow-x: hidden;
-
-background-image: url("data:image/svg+xml,%3Csvg width='500' height='250' viewBox='0 0 500 250' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='0' y='120' fill='%23A799B7' fill-opacity='0.08' font-family='cursive' font-size='32' font-style='italic' transform='rotate(-15, 250, 125)'%3EMega urtr giga . . . Mega urtr giga . . .%3C/text%3E%3C/svg%3E");
-
-background-repeat: repeat;
-
-background-attachment: fixed;
-
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+    background-color: var(--light);
+    color: var(--text);
+    margin: 0; padding: 0;
+    overflow-x: hidden;
+    background-image: url("data:image/svg+xml,%3Csvg width='500' height='250' viewBox='0 0 500 250' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='0' y='120' fill='%23A799B7' fill-opacity='0.08' font-family='cursive' font-size='32' font-style='italic' transform='rotate(-15, 250, 125)'%3EMega urtr giga . . . Mega urtr giga . . .%3C/text%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-attachment: fixed;
 }
-
-
 
 header {
-
-text-align: center;
-
-padding: 4.5rem 1.5rem;
-
-background: linear-gradient(180deg, #E0D7E8 0%, var(--light) 100%);
-
-color: var(--dark);
-
+    text-align: center;
+    padding: 4.5rem 1.5rem;
+    background: linear-gradient(180deg, #E0D7E8 0%, var(--light) 100%);
+    color: var(--dark);
 }
 
-
-
 .main-visual { font-family: "Times New Roman", serif; font-size: 3.2rem; margin: 0; font-weight: 200; letter-spacing: 0.15rem; }
-
 .sub-name { display: block; margin-top: 0.8rem; font-size: 0.75rem; letter-spacing: 0.4rem; font-weight: 300; opacity: 0.7; }
-
-.fanmark { display: inline-block; margin-top: 1.5rem; padding: 5px 16px; background: var(--glass); border: 1px solid var(--accent); border-radius: 50px; font-size: 0.8rem; backdrop-filter: blur(5px); color: var(--dark); }
-
-
 
 .container { max-width: 550px; margin: 0 auto; padding: 2rem 1.2rem; }
 
-
-
-/* アニメーション：逆スクロールで消える設定 */
-
+/* アニメーション設定 */
 .reveal {
-
-position: relative;
-
-background: white;
-
-padding: 2.2rem 1.8rem 1.8rem;
-
-margin-bottom: 3.5rem;
-
-border-radius: 12px;
-
-border: 1px solid rgba(167, 153, 183, 0.15);
-
-box-shadow: 0 10px 30px rgba(109, 94, 125, 0.05);
-
-background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30,15 Q30,22 25,22 T20,15 T25,8 T30,15' fill='%23A799B7' fill-opacity='0.03'/%3E%3C/svg%3E");
-
-opacity: 0;
-
-transform: translateY(30px);
-
-transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
-
+    position: relative;
+    background: white;
+    padding: 2.2rem 1.8rem 1.8rem;
+    margin-bottom: 3.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(167, 153, 183, 0.15);
+    box-shadow: 0 10px 30px rgba(109, 94, 125, 0.05);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
-
 
 .reveal.active {
-
-opacity: 1;
-
-transform: translateY(0);
-
+    opacity: 1;
+    transform: translateY(0);
 }
-
-
-
-.walking-cat {
-
-position: absolute;
-
-top: -42px;
-
-width: 55px;
-
-height: 45px;
-
-animation: walk-path 20s linear infinite;
-
-z-index: 10;
-
-cursor: pointer;
-
-transition: transform 0.2s;
-
-}
-
-
-
-.walking-cat.stop {
-
-animation-play-state: paused !important;
-
-transform: scale(1.15);
-
-}
-
-.walking-cat.stop .leg-1, .walking-cat.stop .leg-2 { animation-play-state: paused !important; }
-
-.walking-cat.stop .tail { animation: tail-wag 0.4s ease-in-out infinite !important; }
-
-
-
-@keyframes walk-path {
-
-0% { left: -5%; transform: scaleX(1); }
-
-48% { transform: scaleX(1); }
-
-50% { left: 90%; transform: scaleX(-1); }
-
-98% { transform: scaleX(-1); }
-
-100% { left: -5%; transform: scaleX(1); }
-
-}
-
-
-
-.walking-cat svg { fill: var(--primary); }
-
-.leg-1 { animation: leg-move-1 0.4s steps(2) infinite; }
-
-.leg-2 { animation: leg-move-2 0.4s steps(2) infinite; }
-
-.tail { animation: tail-wag 2s ease-in-out infinite; transform-origin: 12px 20px; }
-
-
-
-@keyframes leg-move-1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-2px, -3px); } }
-
-@keyframes leg-move-2 { 0%, 100% { transform: translate(-2px, -3px); } 50% { transform: translate(0, 0); } }
-
-@keyframes tail-wag { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(15deg); } }
-
-
 
 .mcd-badge {
-
-display: inline-flex;
-
-align-items: center;
-
-gap: 8px;
-
-padding: 5px 14px;
-
-border: 1px solid var(--mcd);
-
-border-radius: 4px;
-
-font-size: 0.75rem;
-
-color: var(--mcd);
-
-margin-bottom: 1.5rem;
-
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    border: 1px solid var(--mcd);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: var(--mcd);
+    margin-bottom: 1.5rem;
 }
-
-
 
 .profile-box {
-
-background: #FBF9FC;
-
-padding: 1.2rem;
-
-border-radius: 8px;
-
-margin-bottom: 1.5rem;
-
-color: var(--text);
-
-border-left: 2px solid var(--primary);
-
-font-size: 0.9rem;
-
-line-height: 1.8;
-
+    background: #FBF9FC;
+    padding: 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+    border-left: 2px solid var(--primary);
+    font-size: 0.9rem;
+    line-height: 1.8;
 }
-
-
 
 h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid var(--accent); padding-bottom: 8px; margin-bottom: 1rem; letter-spacing: 0.1rem; }
 
-
-
 .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 1rem; align-items: start; }
-
 .btn-wrapper { display: flex; flex-direction: column; gap: 6px; width: 100%; }
 
-
-
 .btn {
-
-display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 10px; border-radius: 6px;
-
-text-decoration: none; font-size: 0.8rem; color: var(--dark); background: var(--light); border: 1px solid var(--accent); transition: 0.3s;
-
-width: 100%; box-sizing: border-box;
-
+    display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 10px; border-radius: 6px;
+    text-decoration: none; font-size: 0.8rem; color: var(--dark); background: var(--light); border: 1px solid var(--accent); transition: 0.3s;
+    width: 100%; box-sizing: border-box;
 }
-
 .btn:hover { background: var(--accent); transform: translateY(-2px); }
-
 
 .x-logo { width: 14px; height: 14px; fill: currentColor; opacity: 0.8; }
 
-
 .novel-info {
-
-font-size: 0.62rem;
-
-text-align: center;
-
-color: var(--dark);
-
-opacity: 0.6;
-
-font-style: italic;
-
-line-height: 1.2;
-
-padding: 0 4px;
-
+    font-size: 0.62rem;
+    text-align: center;
+    color: var(--dark);
+    opacity: 0.6;
+    font-style: italic;
+    line-height: 1.2;
+    padding: 0 4px;
 }
 
-
-
 .btn-contact { background: var(--dark); color: white; border: none; grid-column: span 2; margin-top: 10px; }
-
 .btn-contact:hover { background: #5A4D6B; }
 
-
-
 footer { text-align: center; padding: 4rem 2rem; font-size: 0.7rem; color: var(--dark); opacity: 0.5; line-height: 1.8; }
-
 </style>
-
 </head>
 
 <body>
 
-
-
 <header>
-
-<span style="font-size: 0.6rem; opacity: 0.6; letter-spacing: 0.1rem; display: block; margin-bottom: 0.5rem;">Unofficial Fan-made Site</span>
-
-<h1 class="main-visual">Mega urtr giga</h1>
-
-<span class="sub-name">メガ・ウルトラギガ</span>
-
+    <span style="font-size: 0.6rem; opacity: 0.6; letter-spacing: 0.1rem; display: block; margin-bottom: 0.5rem;">Unofficial Fan-made Site</span>
+    <h1 class="main-visual">Mega urtr giga</h1>
+    <span class="sub-name">メガ・ウルトラギガ</span>
 </header>
 
-
-
 <div class="container">
+    <div class="reveal">
+        <div class="mcd-badge"><i class="fas fa-cat"></i> 週5マック通いの猫</div>
+        <div class="profile-box">
+            語尾が「ニャン」の猫系ストリーマー。<br>
+            一人称はメガちゃん。<br>
+            とにかく元気いっぱいだニャン！<br>
+            得意技はうるとらねこぱんち。（自称）
+        </div>
+        <div class="image-box"><img src="img0.png" style="transform: rotate(-3deg);"></div>
+        <h2><i class="fas fa-user-circle"></i> ABOUT</h2>
+        <p style="font-size: 0.9rem; line-height: 1.8; margin: 0.5rem 0;">
+            所属：321.inc<br>
+            目標：Live 3D化！ S帯！<br>
+            夢　：マックとコラボすること！<br>
+            ﾌｧﾝﾏ:👊💜
+        </p>
+    </div>
 
-<div class="reveal">
+    <div class="reveal">
+        <div class="image-box"><img src="img1.png" style="transform: rotate(3deg);"></div>
+        <h2 style="margin-top: 0;"><i class="fab fa-youtube"></i> LATEST VIDEO</h2>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed?listType=playlist&list=UU4F7X1pAmS4yFlzOYG5G-zA" 
+                    title="Latest Video" 
+                    allowfullscreen>
+            </iframe>
+        </div>
 
-<div class="walking-cat" onclick="reactCat(this)">
-
-<svg viewBox="0 0 55 45">
-
-<path class="tail" d="M12,20 Q6,15 9,10" stroke="currentColor" stroke-width="2.8" fill="none" stroke-linecap="round" />
-
-<rect x="12" y="15" width="24" height="14" rx="7" />
-
-<circle cx="36" cy="19.5" r="8" />
-
-<path d="M30,13 L33,6 L38,13 Z" /><path d="M38,13 L42,6 L45,15 Z" />
-
-<circle class="eye" cx="34" cy="20" r="0.8" fill="white" opacity="0.8"/><circle class="eye" cx="38" cy="20" r="0.8" fill="white" opacity="0.8"/>
-
-<rect class="leg-1" x="32" y="26" width="3" height="8" rx="1.5" /><rect class="leg-2" x="27" y="26" width="3" height="8" rx="1.5" />
-
-<rect class="leg-1" x="19" y="26" width="3" height="8" rx="1.5" /><rect class="leg-2" x="14" y="26" width="3" height="8" rx="1.5" />
-
-</svg>
-
-</div>
-
-<div class="mcd-badge"><i class="fas fa-cat"></i> 週5マック通いの猫</div>
-
-
-<div class="profile-box">
-
-語尾が「ニャン」の猫系ストリーマー。<br>
-
-一人称はメガちゃん。<br>
-
-とにかく元気いっぱいだニャン！<br>
-
-得意技はうるとらねこぱんち。（自称）
-
-</div>
-
-
-<div class="image-box"><img src="img0.png" style="transform: rotate(-3deg);"></div>
-
-<h2><i class="fas fa-user-circle"></i> ABOUT</h2>
-
-<p style="font-size: 0.9rem; line-height: 1.8; margin: 0.5rem 0;">
-
-所属：321.inc<br>
-
-目標：Live 3D化！ S帯！<br>
-
-夢　：マックとコラボすること！<br>
-
-ﾌｧﾝﾏ:👊💜
-
-</p>
-
-</div>
-
-
-
-<div class="reveal">
-
-<div class="walking-cat" style="animation-delay: -5s;" onclick="reactCat(this)">
-
-<svg viewBox="0 0 55 45">
-
-<path class="tail" d="M12,20 Q6,15 9,10" stroke="currentColor" stroke-width="2.8" fill="none" stroke-linecap="round" />
-
-<rect x="12" y="15" width="24" height="14" rx="7" />
-
-<circle cx="36" cy="19.5" r="8" />
-
-<path d="M30,13 L33,6 L38,13 Z" /><path d="M38,13 L42,6 L45,15 Z" />
-
-<circle class="eye" cx="34" cy="20" r="0.8" fill="white" opacity="0.8"/><circle class="eye" cx="38" cy="20" r="0.8" fill="white" opacity="0.8"/>
-
-<rect class="leg-1" x="32" y="26" width="3" height="8" rx="1.5" /><rect class="leg-2" x="27" y="26" width="3" height="8" rx="1.5" />
-
-<rect class="leg-1" x="19" y="26" width="3" height="8" rx="1.5" /><rect class="leg-2" x="14" y="26" width="3" height="8" rx="1.5" />
-
-</svg>
-
-</div>
-
-<div class="image-box"><img src="img1.png" style="transform: rotate(3deg);"></div>
-<div class="reveal">
-    <h2 style="margin-top: 0;"><i class="fab fa-youtube"></i> LATEST VIDEO</h2>
-    <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed?listType=playlist&list=UU4F7X1pAmS4yFlzOYG5G-zA" 
-                title="Latest Video" 
-                allowfullscreen>
-        </iframe>
+        <h2><i class="fas fa-link"></i> LINK LIST</h2>
+        <div class="btn-grid">
+            <a href="https://x.com/mega_urtr?s=21" class="btn" target="_blank">
+                <svg class="x-logo" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                <span>X（Twitter）</span>
+            </a>
+            <a href="https://youtube.com/@mega321inc?si=GgsflGwV1tzenJqs" class="btn" target="_blank"><i class="fab fa-youtube"></i> <span>YouTube</span></a>
+            <a href="https://web.iriam.app/s/user/nYLgaO6rNQ?uuid=8b06e517" class="btn" target="_blank"><i class="fas fa-microphone"></i> <span>IRIAM</span></a>
+            <div class="btn-wrapper">
+                <a href="https://ncode.syosetu.com/n4943kq/" class="btn" target="_blank">
+                    <i class="fas fa-book-open"></i> <span>なろう小説</span>
+                </a>
+                <div class="novel-info">「科学者だって魔法を使いたい！」(R-15)</div>
+            </div>
+            <a href="https://marshmallow-qa.com/5freahjnhczgfdw" class="btn" target="_blank"><i class="fas fa-comment-dots"></i> <span>マシュマロ</span></a>
+            <a href="https://forms.gle/9zrAg8KVikACMqfP9" class="btn btn-contact" target="_blank"><i class="fas fa-envelope"></i> <span>このサイト編集者に連絡</span></a>
+        </div>
     </div>
 </div>
-
-<h2><i class="fas fa-link"></i> LINK LIST</h2>
-
-<div class="btn-grid">
-
-<a href="https://x.com/mega_urtr?s=21" class="btn" target="_blank">
-
-<svg class="x-logo" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-
-<span>X（Twitter）</span>
-
-</a>
-
-<a href="https://youtube.com/@mega321inc?si=GgsflGwV1tzenJqs" class="btn" target="_blank"><i class="fab fa-youtube"></i> <span>YouTube</span></a>
-
-<a href="https://web.iriam.app/s/user/nYLgaO6rNQ?uuid=8b06e517" class="btn" target="_blank"><i class="fas fa-microphone"></i> <span>IRIAM</span></a>
-
-
-<div class="btn-wrapper">
-
-<a href="https://ncode.syosetu.com/n4943kq/" class="btn" target="_blank">
-
-<i class="fas fa-book-open"></i> <span>なろう小説</span>
-
-</a>
-
-<div class="novel-info">
-
-「科学者だって魔法を使いたい！」(R-15)
-
-</div>
-
-</div>
-
-
-
-<a href="https://marshmallow-qa.com/5freahjnhczgfdw" class="btn" target="_blank"><i class="fas fa-comment-dots"></i> <span>マシュマロ</span></a>
-
-<a href="https://forms.gle/9zrAg8KVikACMqfP9" class="btn btn-contact" target="_blank"><i class="fas fa-envelope"></i> <span>このサイト編集者に連絡</span></a>
-
-</div>
-
-</div>
-
-</div>
-
 
 <div class="image-box"><img src="img2.png" style="transform: rotate(-2deg); width: 200px;"></div>
 
 <footer>
-
-© Mega urtr giga Fan-made Portfolio<br>
-
-当サイトの運営および掲載している画像については、マネージャーを通じて許諾を得ております。
-
+    © Mega urtr giga Fan-made Portfolio<br>
+    当サイトの運営および掲載している画像については、マネージャーを通じて許諾を得ております。
 </footer>
 
-
-
 <script>
-
-function reactCat(cat) {
-
-if (cat.classList.contains('stop')) return;
-
-cat.classList.add('stop');
-
-setTimeout(() => { cat.classList.remove('stop'); }, 3000);
-
-}
-
-
-
 window.onload = () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            } else {
+                entry.target.classList.remove('active');
+            }
+        });
+    }, {
+        rootMargin: "-5% 0px -5% 0px",
+        threshold: 0
+    });
 
-const observer = new IntersectionObserver((entries) => {
-
-entries.forEach(entry => {
-
-if (entry.isIntersecting) {
-
-entry.target.classList.add('active');
-
-} else {
-
-// 画面外に出たとき（逆スクロール）にクラスを外す
-
-entry.target.classList.remove('active');
-
-}
-
-});
-
-}, {
-
-rootMargin: "-5% 0px -5% 0px",
-
-threshold: 0
-
-});
-
-
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 };
-
 </script>
 
-
-
 </body>
-
 </html>
