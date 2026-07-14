@@ -1,480 +1,244 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-
-<link rel="icon" href="apple-touch-icon.png?v=1">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=1">
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- 1. 検索結果に表示されるタイトルをカタカナ先頭に変更 -->
-<title>メガ・ウルトラギガ 非公式ファンサイト | Mega urtr giga 🐾</title>
-
-<!-- 2. 紹介文の先頭にもカタカナのキーワードを配置 -->
-<meta name="description" content="321.inc所属の配信者「メガ・ウルトラギガ」ちゃんの非公式ファンサイトです！最新YouTube動画、X（旧Twitter）、IRIAM、なろう小説などのリンクや最新ニュースをまとめて紹介しています。👊💜">
-
-<!-- 3. 「・」のあるなし、両方のカタカナで引っかかるようにキーワードを設定 -->
-<meta name="keywords" content="メガ・ウルトラギガ,メガウルトラギガ,メガちゃん,321.inc,IRIAM,イリアム,配信者,ストリーマー,科学者だって魔法を使いたい,ファンサイト">
-
-<!-- Googleにインデックスを強制的に促す設定 -->
-<meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="googlebot" content="index, follow">
-
-<!-- URLの正規化（決定した本物のURLを設定済み） -->
-<link rel="canonical" href="https://approved-fan-site.github.io/Mega-Ultr-Giga/">
-
-<!-- SNSシェア時の表示最適化（OGP設定） -->
-<meta property="og:title" content="メガ・ウルトラギガ 非公式ファンサイト">
-<meta property="og:description" content="321.inc所属「メガ・ウルトラギガ」の活動リンクや最新情報をまとめたファン運営サイト。👊💜">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://approved-fan-site.github.io/Mega-Ultr-Giga/">
-<meta property="og:site_name" content="メガ・ウルトラギガ 非公式ファンサイト">
-<meta name="twitter:card" content="summary_large_image">
-
-<!-- GoogleのAIにサイトの意味をダイレクトに伝える「構造化データ」 -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "メガ・ウルトラギガ 非公式ファンサイト",
-  "description": "321.inc所属の配信者メガ・ウルトラギガの活動まとめファンサイト",
-  "url": "https://approved-fan-site.github.io/Mega-Ultr-Giga/",
-  "about": {
-    "@type": "Person",
-    "name": "メガ・ウルトラギガ",
-    "alternateName": ["メガウルトラギガ", "Mega urtr giga", "メガちゃん"],
-    "jobTitle": "ストリーマー / 配信者",
-    "subOrganization": "321.inc"
-  }
-}
-</script>
-
-<!-- アイコンフォント -->
-<link rel="stylesheet" href="https://maxst.icons8.com/unicode-html-image-resources/lazy-load/assets/styles/letter-icons.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
-
-<style>
-:root {
-    --primary: #A799B7;
-    --dark: #5A4E69;
-    --light: #FBF9FC;
-    --accent: #E8E2EE;
-    --border: rgba(167, 153, 183, 0.25);
-    --text: #4A444D;
-    --card-bg: #FFFFFF;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-    background-color: var(--light);
-    color: var(--text);
-    margin: 0; padding: 0;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-}
-
-header {
-    text-align: center;
-    padding: 6rem 1.5rem 2.5rem;
-    background: var(--light);
-}
-
-.site-badge {
-    font-size: 0.65rem;
-    color: var(--primary);
-    letter-spacing: 0.15rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 1rem;
-}
-
-.main-visual {
-    font-size: 2.4rem; /* カタカナが綺麗に収まるようフォントサイズを微調整 */
-    margin: 0;
-    font-weight: 600;
-    letter-spacing: 0.05rem;
-    color: var(--dark);
-}
-
-.sub-name {
-    display: block;
-    margin-top: 0.8rem;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 1rem;
-    letter-spacing: 0.15rem;
-    font-weight: 300;
-    color: var(--text);
-    opacity: 0.7;
-}
-
-.container {
-    max-width: 520px;
-    margin: 0 auto;
-    padding: 0 1.5rem 4rem;
-}
-
-.section-block {
-    background: var(--card-bg);
-    padding: 2.5rem 2rem;
-    margin-bottom: 3rem;
-    border-radius: 4px;
-    border: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(109, 94, 125, 0.02);
-}
-
-.news-box {
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-}
-.news-image {
-    width: 120px;
-    height: 120px;
-    flex-shrink: 0;
-    border: 1px solid var(--border);
-    padding: 4px;
-    background: #fff;
-    border-radius: 2px;
-}
-.news-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-.news-content {
-    flex-grow: 1;
-}
-.news-date {
-    display: block;
-    font-size: 0.75rem;
-    color: var(--primary);
-    font-weight: 600;
-    letter-spacing: 0.05rem;
-    margin-bottom: 0.4rem;
-}
-.news-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--dark);
-    margin: 0 0 0.5rem;
-    line-height: 1.4;
-}
-.news-text {
-    font-size: 0.8rem;
-    line-height: 1.6;
-    margin: 0;
-    color: var(--text);
-    opacity: 0.9;
-}
-
-@media (max-width: 480px) {
-    .news-box {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メガ・ウルトラギガ 非公式ファンサイト</title>
+    
+    <meta name="description" content="321.inc所属の超フレンドリーな配信者「メガ・ウルトラギガ」ちゃんの非公式ファンサイト（紹介ポートフォリオ）です。基本情報や最新のYouTube動画、各種リンクをまとめています。">
+    <meta name="keywords" content="メガ・ウルトラギガ, メガウルトラギガ, 321.inc, IRIAM, ファンサイト">
+    
+    <meta property="og:title" content="メガ・ウルトラギガ 非公式ファンサイト">
+    <meta property="og:description" content="321.inc所属「メガ・ウルトラギガ」ちゃんの魅力を詰め込んだファンサイト💜">
+    <meta property="og:url" content="https://approved-fan-site.github.io/mega-ultra-giga/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://approved-fan-site.github.io/mega-ultra-giga/img1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "メガ・ウルトラギガ 非公式ファンサイト",
+      "url": "https://approved-fan-site.github.io/mega-ultra-giga/",
+      "description": "321.inc所属「メガ・ウルトラギガ」ちゃんの非公式ファンサイトです。"
     }
-    .news-image {
-        width: 100%;
-        max-width: 200px;
-        height: auto;
-        aspect-ratio: 1 / 1;
-    }
-    .news-content {
-        margin-top: 0.5rem;
-    }
-}
+    </script>
 
-.mcd-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 12px;
-    border: 1px solid var(--primary);
-    border-radius: 2px;
-    font-size: 0.75rem;
-    color: var(--dark);
-    font-weight: 500;
-    margin-bottom: 2rem;
-}
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    
+    <style>
+        /* デザインを引き算した洗練されたCSSスタイル */
+        :root {
+            --primary-color: #5e35b1; /* メガちゃんをイメージした上質なパープル */
+            --bg-color: #fcfbfa;      /* 柔らかいオフホワイト */
+            --text-color: #3d352e;    /* 強い黒を避けた濃いブラウン */
+            --border-color: #e8e4df;  /* 主張しない薄い区切り線 */
+            --card-bg: #ffffff;
+        }
 
-.profile-box {
-    color: var(--text);
-    font-size: 0.9rem;
-    line-height: 1.85;
-    letter-spacing: 0.02rem;
-    margin-bottom: 2rem;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-.image-box {
-    text-align: center;
-    margin: 2.5rem 0;
-    perspective: 1000px;
-}
-.image-box img {
-    width: 100%;
-    max-width: 280px;
-    height: auto;
-    border: 1px solid var(--border);
-    padding: 8px 8px 18px 8px;
-    background: #fff;
-    border-radius: 2px;
-    box-sizing: border-box;
-    box-shadow: 0 6px 16px rgba(109, 94, 125, 0.08), 0 1px 3px rgba(0, 0, 0, 0.02);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            letter-spacing: 0.03em;
+            padding: 0 20px;
+        }
 
-.rotate-left img {
-    transform: rotate(-2.5deg) translateY(-2px);
-}
-.rotate-right img {
-    transform: rotate(2deg) translateY(-2px);
-}
+        .container {
+            max-width: 680px;
+            margin: 60px auto;
+        }
 
-.image-box img:hover {
-    transform: scale(1.02) rotate(0deg);
-    box-shadow: 0 12px 24px rgba(109, 94, 125, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
-}
+        /* ヘッダー：派手なグラデーションを廃止し、余白と美しいタイポグラフィで魅せる */
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
 
-h2 {
-    font-size: 0.8rem;
-    color: var(--dark);
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 10px;
-    margin: 2.5rem 0 1.2rem;
-    letter-spacing: 0.15rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-h2 i {
-    font-size: 1.1rem;
-    color: var(--primary);
-}
+        header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
 
-.info-list {
-    font-size: 0.9rem;
-    line-height: 2;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
+        header p {
+            font-size: 13px;
+            color: #8c857b;
+        }
 
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    border-radius: 4px;
-    border: 1px solid var(--border);
-    margin: 1.2rem 0 2rem;
-}
-.video-wrapper iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    border: none;
-}
+        /* メインビジュアル */
+        .image-box {
+            width: 100%;
+            border-radius: 4px; /* 角丸は2〜4pxの控えめデザイン */
+            overflow: hidden;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+        }
 
-.btn-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 1rem;
-}
-.btn-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    grid-column: span 1;
-}
+        .image-box img {
+            width: 100%;
+            display: block;
+        }
 
-.btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px 12px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--dark);
-    background: #FFFFFF;
-    border: 1px solid var(--border);
-    transition: all 0.2s ease;
-    box-sizing: border-box;
-}
-.btn i {
-    font-size: 1.1rem;
-    color: var(--primary);
-}
-.btn:hover {
-    background: var(--light);
-    border-color: var(--dark);
-}
+        /* YouTube動画のレスポンシブ設定 */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9比率 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 4px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+        }
 
-.x-logo {
-    width: 13px;
-    height: 13px;
-    fill: var(--primary);
-    transition: all 0.2s ease;
-}
-.btn:hover .x-logo {
-    fill: var(--dark);
-}
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
 
-.novel-info {
-    font-size: 0.65rem;
-    text-align: center;
-    color: var(--text);
-    opacity: 0.7;
-    line-height: 1.3;
-}
+        /* コンテンツカード：強いシャドウを消し、繊細なボーダーへ */
+        .reveal {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
 
-.btn-contact {
-    background: var(--dark);
-    color: #FFFFFF;
-    border: 1px solid var(--dark);
-    grid-column: span 2;
-    margin-top: 12px;
-}
-.btn-contact i {
-    color: #FFFFFF;
-}
-.btn-contact:hover {
-    background: #4A3F57;
-    border-color: #4A3F57;
-    color: #FFFFFF;
-}
+        .reveal h2 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
 
-.bottom-image-box {
-    text-align: center;
-    margin: 4.5rem 0 1rem;
-}
-.bottom-image-box img {
-    width: 170px;
-    height: auto;
-    border: 1px solid var(--border);
-    padding: 8px 8px 20px 8px;
-    background: #fff;
-    border-radius: 2px;
-    box-shadow: 0 8px 20px rgba(109, 94, 125, 0.08);
-    transition: transform 0.3s ease;
-}
-.bottom-image-box:hover img {
-    transform: scale(1.03) rotate(-1deg);
-}
+        .info-list {
+            list-style: none;
+        }
 
-footer {
-    text-align: center;
-    padding: 3rem 2rem 5rem;
-    font-size: 0.7rem;
-    color: var(--text);
-    opacity: 0.6;
-    line-height: 1.8;
-    letter-spacing: 0.02rem;
-}
-</style>
+        .info-list li {
+            margin-bottom: 12px;
+            font-size: 14px;
+            display: flex;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: bold;
+            width: 100px;
+            color: #7c7267;
+        }
+
+        /* リンクボタン：うるさいグラデーションを排止しシンプルに */
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 12px;
+            color: var(--text-color);
+            text-decoration: none;
+            background: var(--card-bg);
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+
+        .link-item:hover {
+            border-color: var(--primary-color);
+            background-color: #f7f5f8;
+            transform: translateY(-1px);
+        }
+
+        .link-item i {
+            font-size: 20px;
+            margin-right: 12px;
+            color: var(--primary-color);
+        }
+
+        .link-text {
+            flex-grow: 1;
+            font-weight: 500;
+        }
+
+        .link-arrow {
+            color: #bcaaa4;
+            font-size: 12px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 11px;
+            color: #8c857b;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-    <span class="site-badge">Unofficial Fan-made Site</span>
-    <!-- 4. 看板の見出し(h1)を一番ヒットさせたいカタカナに変更 -->
-    <h1 class="main-visual">メガ・ウルトラギガ</h1>
-    <span class="sub-name">Mega urtr giga</span>
-</header>
+    <div class="container">
+        <header>
+            <h1>メガ・ウルトラギガ</h1>
+            <p>リスナーによる「メガちゃん」応援＆紹介サイト</p>
+        </header>
 
-<div class="container">
-    
-    <!-- ニュースタブ（エリア） -->
-    <div class="section-block">
-        <h2><i class="la la-bullhorn"></i> NEWS</h2>
-        <div class="news-box">
-            <div class="news-image">
-                <img src="img3.png" alt="メガ・ウルトラギガ 最新ニュース画像">
-            </div>
-            <div class="news-content">
-                <span class="news-date">2026.07.14</span>
-                <h3 class="news-title">ファンサイトを開設しました！</h3>
-                <p class="news-text">メガ・ウルトラギガちゃんの非公式ファンサイトです。最新情報やリンク一覧をまとめています！🐾</p>
-            </div>
+        <div class="image-box">
+            <img src="img1.png" alt="メガ・ウルトラギガ ビジュアル">
         </div>
-    </div>
-    
-    <!-- プロフィール・アバウト情報 -->
-    <div class="section-block">
-        <div class="mcd-badge"><i class="la la-cat"></i> 週5マック通いの猫</div>
-        
-        <div class="profile-box">
-            語尾が「ニャン」の猫系ストリーマー。<br>
-            一人称はメガちゃん。<br>
-            とにかく元気いっぱいだニャン！<br>
-            得意技はうるとらねこぱんち。（自称）
-        </div>
-        
-        <div class="image-box rotate-left">
-            <img src="img0.png" alt="メガ・ウルトラギガ（Mega urtr giga）紹介写真01">
-        </div>
-        
-        <h2><i class="la la-user-circle"></i> ABOUT</h2>
-        <!-- 5. テキスト内にも自然にカタカナ名を増やしてクローラーにアピール -->
-        <ul class="info-list">
-            <li><strong>配信者名：</strong>メガ・ウルトラギガ</li>
-            <li><strong>所属事務所：</strong>321.inc</li>
-            <li><strong>配信目標：</strong>Live 3D化！ S帯！</li>
-            <li><strong>メガちゃんの夢：</strong>マックとコラボすること！</li>
-            <li><strong>ﾌｧﾝﾏｰｸ：</strong>👊💜</li>
-        </ul>
-    </div>
 
-    <!-- 動画・リンク一覧 -->
-    <div class="section-block">
-        <div class="image-box rotate-right">
-            <img src="img1.png" alt="メガ・ウルトラギガ（Mega urtr giga）活動イメージ写真02">
-        </div>
-        
-        <h2 style="margin-top: 0;"><i class="la la-youtube"></i> LATEST VIDEO</h2>
         <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed?listType=playlist&list=UU4F7X1pAmS4yFlzOYG5G-zA" 
-                    title="メガ・ウルトラギガ YouTube最新動画" 
-                    allowfullscreen>
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/特定の動画ID" allowfullscreen></iframe>
         </div>
 
-        <h2><i class="la la-link"></i> LINK LIST</h2>
-        <div class="btn-grid">
-            <a href="https://x.com/mega_urtr?s=21" class="btn" target="_blank">
-                <svg class="x-logo" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-                <span>X（Twitter）</span>
+        <div class="reveal">
+            <h2>PROFILE</h2>
+            <ul class="info-list">
+                <li><span class="info-label">所属</span><span>321.inc</span></li>
+                <li><span class="info-label">目標</span><span>Live3D化</span></li>
+                <li><span class="info-label">夢</span><span>大金持ち</span></li>
+            </ul>
+        </div>
+
+        <div class="reveal">
+            <h2>LINK LIST</h2>
+            
+            <a href="https://www.youtube.com/" target="_blank" class="link-item">
+                <i class="lab la-youtube"></i>
+                <span class="link-text">YouTube チャンネル</span>
+                <i class="las la-angle-right link-arrow"></i>
             </a>
-            <a href="https://youtube.com/@mega321inc?si=GgsflGwV1tzenJqs" class="btn" target="_blank"><i class="la la-youtube"></i> <span>YouTube</span></a>
-            <a href="https://web.iriam.app/s/user/nYLgaO6rNQ?uuid=8b06e517" class="btn" target="_blank"><i class="la la-microphone"></i> <span>IRIAM</span></a>
-            <div class="btn-wrapper">
-                <a href="https://ncode.syosetu.com/n4943kq/" class="btn" target="_blank">
-                    <i class="la la-book-open"></i> <span>なろう小説</span>
-                </a>
-                <div class="novel-info">「科学者だって魔法を使いたい！」(R-15)</div>
-            </div>
-            <a href="https://marshmallow-qa.com/5freahjnhczgfdw" class="btn" target="_blank"><i class="la la-comment-dots"></i> <span>マシュマロ</span></a>
-            <a href="https://forms.gle/9zrAg8KVikACMqfP9" class="btn btn-contact" target="_blank"><i class="la la-envelope"></i> <span>このサイト編集者に連絡</span></a>
+
+            <a href="https://x.com/" target="_blank" class="link-item">
+                <i class="lab la-twitter"></i>
+                <span class="link-text">公式 X (旧Twitter)</span>
+                <i class="las la-angle-right link-arrow"></i>
+            </a>
         </div>
+
+        <footer>
+            <p>&copy; メガ・ウルトラギガ 非公式ファンプロジェクト</p>
+        </footer>
     </div>
-</div>
-
-<div class="bottom-image-box">
-    <img src="img2.png" alt="メガ・ウルトラギガ ファンタジー風イラスト03" style="transform: rotate(-3deg);">
-</div>
-
-<footer>
-    © Mega urtr giga Fan-made Portfolio<br>
-    当サイトの運営および掲載している画像については、マネージャーを通じて許諾を得ております。
-</footer>
 
 </body>
 </html>
