@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>メガ・ウルトラギガ 非公式ファンサイト</title>
     
+    <!-- SEO対策 & カタカナ検索対策 -->
     <meta name="description" content="321.inc所属の超フレンドリーな配信者「メガ・ウルトラギガ」ちゃんの非公式ファンサイト（紹介ポートフォリオ）です。基本情報や最新のYouTube動画、各種リンクをまとめています。">
     <meta name="keywords" content="メガ・ウルトラギガ, メガウルトラギガ, 321.inc, IRIAM, ファンサイト">
     
+    <!-- OGP設定（SNS共有時の見栄え）: 新しいURLに最適化 -->
     <meta property="og:title" content="メガ・ウルトラギガ 非公式ファンサイト">
     <meta property="og:description" content="321.inc所属「メガ・ウルトラギガ」ちゃんの魅力を詰め込んだファンサイト💜">
     <meta property="og:url" content="https://approved-fan-site.github.io/mega-ultra-giga/">
@@ -15,8 +17,10 @@
     <meta property="og:image" content="https://approved-fan-site.github.io/mega-ultra-giga/img1.png">
     <meta name="twitter:card" content="summary_large_image">
     
+    <!-- Google Search Console 所有権確認用タグ -->
     <meta name="google-site-verification" content="7MxA5Exx1B6mz935gEzxfy4RJB5nAqWCUmW6hw_3FiU" />
 
+    <!-- Google 構造化データ (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -27,6 +31,7 @@
     }
     </script>
 
+    <!-- 線画スタイルの洗練されたアイコンフォント -->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     
     <style>
@@ -59,7 +64,7 @@
             margin: 60px auto;
         }
 
-        /* ヘッダー：余白と美しいタイポグラフィで魅せる */
+        /* ヘッダー */
         header {
             text-align: center;
             margin-bottom: 48px;
@@ -80,7 +85,7 @@
         /* メインビジュアル */
         .image-box {
             width: 100%;
-            border-radius: 4px; /* 角丸は2〜4pxの控えめデザイン */
+            border-radius: 4px;
             overflow: hidden;
             margin-bottom: 40px;
             border: 1px solid var(--border-color);
@@ -94,7 +99,7 @@
         /* YouTube動画のレスポンシブ設定 */
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9比率 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 4px;
@@ -111,7 +116,7 @@
             border: none;
         }
 
-        /* コンテンツカード：強いシャドウを消し、繊細なボーダーへ */
+        /* コンテンツカード */
         .reveal {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -138,3 +143,115 @@
             font-size: 14px;
             display: flex;
             border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: bold;
+            width: 100px;
+            color: #7c7267;
+        }
+
+        /* リンクボタン */
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 12px;
+            color: var(--text-color);
+            text-decoration: none;
+            background: var(--card-bg);
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+
+        .link-item:hover {
+            border-color: var(--primary-color);
+            background-color: #f7f5f8;
+            transform: translateY(-1px);
+        }
+
+        .link-item i {
+            font-size: 20px;
+            margin-right: 12px;
+            color: var(--primary-color);
+        }
+
+        .link-text {
+            flex-grow: 1;
+            font-weight: 500;
+        }
+
+        .link-arrow {
+            color: #bcaaa4;
+            font-size: 12px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 11px;
+            color: #8c857b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- ヘッダー -->
+        <header>
+            <h1>メガ・ウルトラギガ</h1>
+            <p>リスナーによる「メガちゃん」応援＆紹介サイト</p>
+        </header>
+
+        <!-- メインビジュアル画像 -->
+        <div class="image-box">
+            <img src="img1.png" alt="メガ・ウルトラギガ ビジュアル">
+        </div>
+
+        <!-- YouTube動画埋め込みエリア -->
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/g_T8TfU90yU" allowfullscreen></iframe>
+        </div>
+
+        <!-- 基本情報カード -->
+        <div class="reveal">
+            <h2>PROFILE</h2>
+            <ul class="info-list">
+                <li><span class="info-label">所属</span><span>321.inc</span></li>
+                <li><span class="info-label">目標</span><span>Live3D化</span></li>
+                <li><span class="info-label">夢</span><span>大金持ち</span></li>
+            </ul>
+        </div>
+
+        <!-- リンク集カード -->
+        <div class="reveal">
+            <h2>LINK LIST</h2>
+            
+            <a href="https://www.youtube.com/@mega-ultra-giga" target="_blank" class="link-item">
+                <i class="lab la-youtube"></i>
+                <span class="link-text">YouTube チャンネル</span>
+                <i class="las la-angle-right link-arrow"></i>
+            </a>
+
+            <a href="https://x.com/mega_ultra_giga" target="_blank" class="link-item">
+                <i class="lab la-twitter"></i>
+                <span class="link-text">公式 X (旧Twitter)</span>
+                <i class="las la-angle-right link-arrow"></i>
+            </a>
+        </div>
+
+        <!-- フッター -->
+        <footer>
+            <p>&copy; メガ・ウルトラギガ 非公式ファンプロジェクト</p>
+        </footer>
+    </div>
+
+</body>
+</html>
