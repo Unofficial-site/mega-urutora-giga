@@ -93,12 +93,25 @@ header {
     margin-bottom: 1rem;
 }
 
+/* 名前の透過イラスト画像（img4.png）のスタイル設定 */
+.header-logo {
+    max-width: 100%;       /* 親要素の幅を超えない */
+    height: auto;          /* 縦横比を保つ */
+    width: 320px;          /* パソコン表示時の幅（ロゴの雰囲気に合わせて調整してください） */
+    margin: 0 auto;        /* 中央寄せ設定 */
+    display: block;        /* 中央寄せに必須 */
+}
+
+/* スマホ表示時の画像幅の調整 */
+@media (max-width: 480px) {
+    .header-logo {
+        width: 250px;      /* スマホで見るときの幅（好みのサイズに調整してください） */
+    }
+}
+
 .main-visual {
-    font-size: 2.4rem;
     margin: 0;
-    font-weight: 600;
-    letter-spacing: 0.05rem;
-    color: var(--dark);
+    line-height: 1;
 }
 
 .sub-name {
@@ -388,7 +401,10 @@ footer {
 
 <header>
     <span class="site-badge">Unofficial Fan-made Site</span>
-    <h1 class="main-visual">メガ・ウルトラギガ</h1>
+    <h1 class="main-visual">
+        <!-- 「メガ・ウルトラギガ」の文字を透過イラスト画像 img4.png に変更しました -->
+        <img src="img4.png" alt="メガ・ウルトラギガ" class="header-logo">
+    </h1>
     <span class="sub-name">Mega urtr giga</span>
 </header>
 
