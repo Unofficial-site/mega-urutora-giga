@@ -280,9 +280,9 @@ header {
 
 .image-box img {
     width: 100%;
-    max-width: 320px;
+    max-width: 480px; /* 16:9に合わせて少し横幅を広げました */
     height: auto;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 16 / 9; /* 4/5の縦長から、16:9の横長へ変更 */
     object-fit: cover;
     border: 1px solid var(--glass-border);
     padding: 10px 10px 24px 10px;
@@ -428,9 +428,9 @@ h2 {
 }
 .bottom-image-box img {
     width: 100%;
-    max-width: 200px;
+    max-width: 320px; /* 16:9に合わせて少し横幅を広げました */
     height: auto;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 16 / 9; /* 4/5の縦長から、16:9の横長へ変更 */
     object-fit: cover;
     border: 1px solid var(--glass-border);
     padding: 10px 10px 24px 10px;
@@ -501,7 +501,6 @@ h2 {
 
 <main class="container">
     
-    <!-- NEWS セクション -->
     <section class="section-block fade-in-element delay-2">
         <h2>
             <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
@@ -524,7 +523,6 @@ h2 {
         </div>
     </section>
     
-    <!-- PROFILE セクション -->
     <section class="section-block fade-in-element delay-3">
         <div class="profile-box">
             語尾が「ニャン」の猫系ストリーマー。<br>
@@ -534,7 +532,7 @@ h2 {
         </div>
         
         <div class="image-box floating rotate-left">
-            <img src="img0.webp" alt="321.inc所属ライバー メガ・ウルトラギガ立ち絵紹介写真" width="320" height="400" loading="lazy" decoding="async">
+            <img src="img0.webp" alt="321.inc所属ライバー メガ・ウルトラギガ立ち絵紹介写真" width="480" height="270" loading="lazy" decoding="async">
         </div>
         
         <h2>
@@ -550,10 +548,9 @@ h2 {
         </ul>
     </section>
 
-    <!-- VIDEO ＆ LINKS セクション -->
     <section class="section-block fade-in-element delay-4">
         <div class="image-box floating rotate-right">
-            <img src="img1.webp" alt="メガ・ウルトラギガ活動イメージファンアート画像" width="320" height="400" loading="lazy" decoding="async">
+            <img src="img1.webp" alt="メガ・ウルトラギガ活動イメージファンアート画像" width="480" height="270" loading="lazy" decoding="async">
         </div>
         
         <h2 class="mt-0">
@@ -605,7 +602,7 @@ h2 {
 </main>
 
 <div class="bottom-image-box floating fade-in-element delay-4">
-    <img src="img2.webp" alt="メガ・ウルトラギガ ファンタジー風イラストファンアート" width="200" height="250" loading="lazy" decoding="async">
+    <img src="img2.webp" alt="メガ・ウルトラギガ ファンタジー風イラストファンアート" width="320" height="180" loading="lazy" decoding="async">
 </div>
 
 <footer class="site-footer fade-in-element delay-4">
