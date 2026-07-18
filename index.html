@@ -6,7 +6,8 @@
 <link rel="preload" href="img0.webp" as="image" type="image/webp">
 <link rel="preload" href="img3.webp" as="image" type="image/webp">
 <link rel="preload" href="img6.webp" as="image" type="image/webp">
-<link rel="preload" href="img5.webp" as="image" type="image/webp"> <link rel="icon" href="img5.webp" type="image/webp">
+<link rel="preload" href="img5.webp" as="image" type="image/webp"> 
+<link rel="icon" href="img5.webp" type="image/webp">
 <link rel="apple-touch-icon" href="img5.webp">
 
 <meta name="google-site-verification" content="7MxA5Exx1B6mz935gEzxfy4RJB5nAqWCUmW6hw_3FiU" />
@@ -104,45 +105,44 @@ body {
 }
 
 /* ==========================================
-    HEADER スライドショー背景設定
+    ヘッダー ＆ スライドショー
    ========================================== */
 header {
     position: relative;
+    overflow: hidden;
     text-align: center;
     padding: 5rem 1.5rem 4rem;
     background-color: transparent;
-    overflow: hidden;
 }
 
-/* スライドショーのコンテナ */
-.header-slideshow {
+.header-slider {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 1;
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
 
-/* スライドされる各画像（薄くして文字の邪魔をしない設定） */
 .header-slide {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out; /* なめらかに消えながら次へ */
+    transition: opacity 1.5s ease-in-out;
 }
 
-/* アクティブな画像だけ表示 */
 .header-slide.active {
-    opacity: 0.2; /* ★ここを調整することで背景写真の薄さを変更できます（0.2 = 20%） */
+    opacity: 0.15; /* 写真を薄く表示 */
 }
 
-/* ヘッダー内のコンテンツを最前面に浮き立たせる */
 .header-content {
     position: relative;
-    z-index: 2;
+    z-index: 1; /* スライドショーの上にコンテンツを配置 */
 }
 
 .site-badge {
@@ -154,7 +154,7 @@ header {
     display: block;
     margin-bottom: 1.5rem;
     opacity: 0.9;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* 写真と被っても見やすく */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 1), 0 0 4px rgba(255, 255, 255, 0.8);
 }
 
 .header-logo {
@@ -164,7 +164,7 @@ header {
     aspect-ratio: 1530 / 547;
     margin: 0 auto;
     display: block;
-    filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.5));
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9)); /* ロゴを見やすく縁取り */
 }
 
 @media (max-width: 480px) {
@@ -179,15 +179,12 @@ header {
     font-family: "Times New Roman", Times, serif;
     font-size: 1.15rem;
     letter-spacing: 0.25rem;
-    font-weight: 300;
+    font-weight: 600;
     color: var(--dark);
     opacity: 0.9;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* 写真と被っても見やすく */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 1), 0 0 4px rgba(255, 255, 255, 0.8);
 }
 
-/* ==========================================
-    メインレイアウト ＆ 各パーツ
-   ========================================== */
 .container {
     max-width: 820px;
     margin: 0 auto;
@@ -226,7 +223,9 @@ header {
     vertical-align: text-bottom;
 }
 
-/* NEWS ＆ X 2カラムレイアウト */
+/* ==========================================
+    NEWS ＆ X（Twitter）2カラムレイアウト
+   ========================================== */
 .news-area-grid {
     display: grid;
     grid-template-columns: 1.25fr 0.75fr;
@@ -332,7 +331,9 @@ header {
     max-width: 100% !important;
 }
 
-/* PROFILE ＆ その他のスタイル */
+/* ==========================================
+    PROFILE ＆ その他のスタイル
+   ========================================== */
 .profile-box { color: var(--text); font-size: 0.95rem; line-height: 1.9; letter-spacing: 0.03rem; margin-bottom: 3rem; text-align: center; }
 .image-box { text-align: center; margin: 3rem 0; }
 .image-box img { width: 100%; max-width: 480px; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--glass-border); padding: 12px; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border-radius: 4px; box-sizing: border-box; box-shadow: 0 8px 24px rgba(109, 94, 125, 0.08); }
@@ -361,12 +362,12 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
 <body>
 
 <header class="fade-in-element delay-1">
-    <div class="header-slideshow">
+    <div class="header-slider">
         <div class="header-slide active" style="background-image: url('img0.webp');"></div>
         <div class="header-slide" style="background-image: url('img1.webp');"></div>
         <div class="header-slide" style="background-image: url('img2.webp');"></div>
     </div>
-
+    
     <div class="header-content">
         <span class="site-badge">Unofficial Fan-made Site</span>
         <h1 class="main-visual">
@@ -440,7 +441,7 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
                 </h2>
                 <div class="x-widget-wrapper">
                     <blockquote class="twitter-tweet" data-media-max-width="560" data-theme="light">
-                        <p lang="ja" dir="ltr">🍔【ガチイベスケジュール】🍔<br><br>＿＿＿◣＿＿＿＿＿◢＿＿＿⁰<br><br>💜7月20日～7月26日💜<br><br>事務所ユニットイベント参戦❣<br><br>1位入賞＆100万ポイント🔥達成目指してます❣<br><br>池袋の現地でみんなにあいたい❣絶対一位とれるように頑張るから見てて❣<br><br>🍭🍔⚔🦀Tetria ~テトリア~<br>＿＿＿＿＿＿＿＿＿＿＿＿𓂃 <a href="https://t.co/mGNuKJrh1s">pic.twitter.com/mGNuKJrh1s</a></p>
+                        <p lang="ja" dir="ltr">🍔【ガチイベスケジュール】🍔<br><br>＿＿＿◣＿＿＿＿＿◢＿＿＿⁰<br><br>💜7月20日～7月26日💜<br><br>事務所ユニットイベント参戦❣<br><br>１位入賞＆100万ポイント🔥達成目指してます❣<br><br>池袋の現地でみんなにあいたい❣絶対一位とれるように頑張るから見てて❣<br><br>🍭🍔⚔🦀Tetria ~テトリア~<br>＿＿＿＿＿＿＿＿＿＿＿＿𓂃 <a href="https://t.co/mGNuKJrh1s">pic.twitter.com/mGNuKJrh1s</a></p>
                         &mdash; メガ・ウルトラギガ👊💜ユニイベｹﾞﾁ🔥 (@mega_urtr) 
                         <a href="https://x.com/mega_urtr/status/2077606078892941489?ref_src=twsrc%5Etfw">July 16, 2026</a>
                     </blockquote>
@@ -460,7 +461,7 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
         </div>
         
         <div class="image-box floating rotate-left">
-            <img src="img0.webp" alt="メガ・ウルトラギガ3面図" width="480" height="270" decoding="async">
+            <img src="img0.webp" alt="メガ・ウルトラギガ３面図" width="480" height="270" decoding="async">
         </div>
         
         <h2>
@@ -490,7 +491,7 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
                     title="メガ・ウルトラギガ YouTube最新動画再生リスト" 
                     loading="lazy"
                     allowfullscreen>
-            </footer>
+            </iframe>
         </div>
 
         <h2>
@@ -536,7 +537,7 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
 <footer class="site-footer fade-in-element delay-4">
     <div class="guideline-card">
         <p class="guideline-title">閲覧にあたっての注意事項（ガイドラインの遵守）</p>
-        <p class="guideline-text">当サイトは、所属事務所の許諾を得て運営している公認ファンサイトです。</p>
+        <p class="guideline-text">当サイトは、所属事務所の許候を得て運営している公認ファンサイトです。</p>
         <p class="guideline-text">当サイトでは、公式の二次創作ガイドライン（AI学習の禁止、商用利用の禁止、誹謗中傷や公序良俗に反する表現の禁止など）を全面的に支持し、遵守して運営しております。</p>
         <p class="guideline-text">閲覧者の皆様におかれましても、当サイト内のコンテンツの二次利用や無断転載は行わないよう、ご理解とご協力をお願いいたします。</p>
     </div>
@@ -548,23 +549,15 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const slides = document.querySelectorAll(".header-slide");
-    let currentSlide = 0;
-    const intervalTime = 4000; // ★ここで画像の表示待機時間を調整できます（4000 = 4秒）
-
-    function nextSlide() {
-        // 現在の画像をフェードアウト（activeクラスを消去）
-        slides[currentSlide].classList.remove("active");
-        
-        // 次のインデックス番号を計算
-        currentSlide = (currentSlide + 1) % slides.length;
-        
-        // 次の画像をフェードイン（activeクラスを追加）
-        slides[currentSlide].classList.add("active");
+    const slides = document.querySelectorAll('.header-slide');
+    if (slides.length > 0) {
+        let currentSlide = 0;
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000); // 5秒ごとに写真を切り替え
     }
-
-    // 指定時間ごとに上記関数をループ実行
-    setInterval(nextSlide, intervalTime);
 });
 </script>
 
