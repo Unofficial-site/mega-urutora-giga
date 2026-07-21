@@ -44,15 +44,17 @@
 <meta property="og:site_name" content="非公式ファンサイト">
 <meta name="twitter:card" content="summary_large_image">
 
+<!-- SwiperのCSSを読み込み -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 <style>
 
-/* 追加するCSS */
 .header-video {
     display: block;
     width: 100%;
-    max-width: 520px;    /* ロゴの最大横幅（520px）と揃えるときれいに見えます */
-    height: auto;        /* 高さを自動にして動画の比率を保つ */
-    margin: 20px auto 0; /* ロゴ画像との間に少し隙間を作る */
+    max-width: 520px;
+    height: auto;
+    margin: 20px auto 0;
     border-radius: 8px;
 }
 
@@ -62,7 +64,6 @@
     --accent: #E8E2EE;
     --text: #4A444D;
     
-    /* すりガラス風（半透明）の変数 */
     --glass-bg: rgba(255, 255, 255, 0.7);
     --glass-border: rgba(255, 255, 255, 0.5);
 }
@@ -205,9 +206,7 @@ header {
     vertical-align: text-bottom;
 }
 
-/* ==========================================
-    NEWS ＆ X（Twitter）2カラムレイアウト
-    ========================================== */
+/* NEWS ＆ X2カラムレイアウト */
 .news-area-grid {
     display: grid;
     grid-template-columns: 1.25fr 0.75fr;
@@ -313,9 +312,6 @@ header {
     max-width: 100% !important;
 }
 
-/* ==========================================
-    PROFILE ＆ その他のスタイル
-    ========================================== */
 .profile-box { color: var(--text); font-size: 0.95rem; line-height: 1.9; letter-spacing: 0.03rem; margin-bottom: 3rem; text-align: center; }
 .image-box { text-align: center; margin: 3rem 0; }
 .image-box img { width: 100%; max-width: 480px; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--glass-border); padding: 12px; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border-radius: 4px; box-sizing: border-box; box-shadow: 0 8px 24px rgba(109, 94, 125, 0.08); }
@@ -338,6 +334,123 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
 .guideline-card { max-width: 680px; margin: 0 auto 2.5rem; text-align: left; background: var(--glass-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 2rem; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 8px 32px rgba(109, 94, 125, 0.04); }
 .guideline-title { font-weight: bold; margin-bottom: 0.8rem; color: var(--dark); text-align: center; }
 .copyright-sub { margin-bottom: 0; font-size: 0.8rem; color: #6D6373; }
+
+/* ==========================================
+   ★ギャラリー（1510*2777 縦長画像対応）
+   ========================================== */
+/* ==========================================
+   ★ギャラリー（1510*2777 縦長画像対応・サイズ調整版）
+   ========================================== */
+.gallery-container {
+    position: relative;
+    width: 100%;
+    max-width: 360px; /* 全体幅を少し絞って大きくなりすぎるのを防ぐ */
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 24px rgba(109, 94, 125, 0.08);
+    background: rgba(0, 0, 0, 0.05); /* 余白が見える場合の背景色（お好みで調整） */
+}
+
+.gallery-swiper {
+    width: 100%;
+    /* 画面の高さの60vh（または最大520px）に収まるよう高さを制限 */
+    max-height: min(60vh, 520px); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-swiper .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.gallery-swiper img {
+    width: 100%;
+    height: auto;
+    max-height: min(60vh, 520px);
+    /* 切れることなく画像全体を枠内に収める */
+    object-fit: contain; 
+    display: block;
+}
+
+/* 矢印ボタンのデザイン */
+.swiper-button-next, .swiper-button-prev {
+    color: var(--primary) !important;
+    background: rgba(255, 255, 255, 0.85);
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 1.1rem !important;
+    font-weight: bold;
+}
+
+/* 右下の小さなプレビュー表示領域 */
+.next-preview-box {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 4px;
+    border-radius: 6px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.next-preview-box:hover {
+    transform: scale(1.05);
+}
+
+.next-preview-badge {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--dark);
+    letter-spacing: 0.05rem;
+    margin-bottom: 2px;
+    padding-right: 2px;
+}
+
+.next-preview-thumb {
+    width: 28px; /* プレビューサムネイルもコンパクト化 */
+    height: 50px;
+    object-fit: cover;
+    border-radius: 3px;
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .gallery-container {
+        max-width: 280px; /* スマホ表示時はさらにコンパクトに */
+    }
+    .gallery-swiper,
+    .gallery-swiper img {
+        max-height: 50vh; /* スマホ画面の半分程度の高さに抑える */
+    }
+    .next-preview-thumb {
+        width: 24px;
+        height: 42px;
+    }
+    .next-preview-box {
+        bottom: 8px;
+        right: 8px;
+    }
+}
 </style>
 </head>
 
@@ -346,12 +459,10 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
 <header class="fade-in-element delay-1">
     <span class="site-badge">Unofficial Fan-made Site</span>
     
-    <!-- ロゴ画像 -->
     <h1 class="main-visual">
         <img src="img4.webp" alt="メガ・ウルトラギガ" class="header-logo" width="1527" height="599" fetchpriority="high">
     </h1>
-    </video>
-        <video autoplay loop muted playsinline class="header-video">
+    <video autoplay loop muted playsinline class="header-video">
         <source src="mega.mp4" type="video/mp4">
         お使いのブラウザは動画の再生に対応していません。
     </video>
@@ -440,9 +551,27 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
             夢は「大金持ちになること！」らしい。
         </div>
         
+        <!-- ★ギャラリー（1510*2777 縦長画像対応） -->
+        <div class="gallery-container">
+            <!-- Swiper本体 -->
+            <div class="swiper gallery-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="img0.webp" alt="ギャラリー画像1" width="1510" height="2777" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="img1.webp" alt="ギャラリー画像2" width="1510" height="2777" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="img2.webp" alt="ギャラリー画像3" width="1510" height="2777" loading="lazy"></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
 
+            <!-- 右下に重なる「次の画像プレビュー」 -->
+            <div class="next-preview-box" id="nextPreviewBox">
+                <span class="next-preview-badge">NEXT ❯</span>
+                <img src="img1.webp" alt="次の画像プレビュー" class="next-preview-thumb" id="nextPreviewThumb">
+            </div>
+        </div>
         
-        <h2>
+        <h2 class="mt-0">
             <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg>
             ABOUT
         </h2>
@@ -456,8 +585,6 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
     </section>
 
     <section class="section-block fade-in-element delay-4">
-
-        
         <h2 class="mt-0">
             <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
             LATEST VIDEO
@@ -514,7 +641,7 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
     <div class="guideline-card">
         <p class="guideline-title">閲覧にあたっての注意事項（ガイドラインの遵守）</p>
         <p class="guideline-text">当サイトは、所属事務所の許候を得て運営している公認ファンサイトです。</p>
-        <p class="guideline-text">当サイトでは、公式の二次創作ガイドライン（AI学習の禁止、商用利用の禁止、誹謗中傷や公序良俗に反する表現の禁止など）を全面的に支持し、遵守して運営しております。</p>
+        <p class="guideline-text">当サイトでは、公式の二次創作ガイドライン（AI学習の禁止、商用利用の禁止、誹謗中傷や公序良俗に反する表現の禁止など）を個人的に支持し、遵守して運営しております。</p>
         <p class="guideline-text">閲覧者の皆様におかれましても、当サイト内のコンテンツの二次利用や無断転載は行わないよう、ご理解とご協力をお願いいたします。</p>
     </div>
     <p class="copyright-main">&copy; 2026 Koqi</p>
@@ -522,6 +649,39 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
 </footer>
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<!-- Swiperのプログラムを読み込み -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // 画像のリスト（HTMLの並び順通り）
+        const galleryImages = ['img0.webp', 'img1.webp', 'img2.webp'];
+        const previewThumb = document.getElementById('nextPreviewThumb');
+        const previewBox = document.getElementById('nextPreviewBox');
+
+        const gallerySwiper = new Swiper('.gallery-swiper', {
+            loop: true, // 画像が最後に行ったら最初に戻るループ再生
+            spaceBetween: 10,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            grabCursor: true,
+            on: {
+                // スライド切り替え時に右下のプレビュー画像を「次の画像」に自動更新
+                slideChange: function () {
+                    const nextIndex = (this.realIndex + 1) % galleryImages.length;
+                    previewThumb.src = galleryImages[nextIndex];
+                }
+            }
+        });
+
+        // 右下のプレビュー領域をタップ（クリック）したら次の画像へ進む
+        previewBox.addEventListener('click', function () {
+            gallerySwiper.slideNext();
+        });
+    });
+</script>
 
 </body>
 </html>
