@@ -462,10 +462,17 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
     <h1 class="main-visual">
         <img src="img4.webp" alt="メガ・ウルトラギガ" class="header-logo" width="1527" height="599" fetchpriority="high">
     </h1>
-    <video autoplay loop muted playsinline class="header-video">
-        <source src="mega.mp4" type="video/mp4">
-        お使いのブラウザは動画の再生に対応していません。
-    </video>
+<video
+    id="headerVideo"
+    class="header-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    webkit-playsinline
+    preload="auto">
+    <source src="mega.mp4" type="video/mp4">
+</video>
 </header>
 
 <main class="container">
@@ -681,6 +688,18 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
         // 右下のプレビュー領域をタップ（クリック）したら次の画像へ進む
         previewBox.addEventListener('click', function () {
             gallerySwiper.slideNext();
+
+          // iPhone向けに動画を再生
+        const video = document.getElementById("headerVideo");
+        
+        video.muted = true;
+        video.playsInline = true;
+        
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                video.play().catch(err => console.log(err));
+            }, 300);
+        });
         });
     });
 </script>
