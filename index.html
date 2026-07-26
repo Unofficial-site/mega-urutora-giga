@@ -43,7 +43,7 @@
 <meta property="og:site_name" content="非公式ファンサイト">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- SwiperのCSSを読み込み -->
+  
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 <style>
@@ -205,7 +205,7 @@ header {
     vertical-align: text-bottom;
 }
 
-/* NEWS ＆ X2カラムレイアウト */
+
 .news-area-grid {
     display: grid;
     grid-template-columns: 1.25fr 0.75fr;
@@ -334,27 +334,21 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
 .guideline-title { font-weight: bold; margin-bottom: 0.8rem; color: var(--dark); text-align: center; }
 .copyright-sub { margin-bottom: 0; font-size: 0.8rem; color: #6D6373; }
 
-/* ==========================================
-   ★ギャラリー（1510*2777 縦長画像対応）
-   ========================================== */
-/* ==========================================
-   ★ギャラリー（1510*2777 縦長画像対応・サイズ調整版）
-   ========================================== */
+
 .gallery-container {
     position: relative;
     width: 100%;
-    max-width: 360px; /* 全体幅を少し絞って大きくなりすぎるのを防ぐ */
+    max-width: 360px; 
     margin: 0 auto;
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid var(--glass-border);
     box-shadow: 0 8px 24px rgba(109, 94, 125, 0.08);
-    background: rgba(0, 0, 0, 0.05); /* 余白が見える場合の背景色（お好みで調整） */
+    background: rgba(0, 0, 0, 0.05); 
 }
 
 .gallery-swiper {
     width: 100%;
-    /* 画面の高さの60vh（または最大520px）に収まるよう高さを制限 */
     max-height: min(60vh, 520px); 
     display: flex;
     align-items: center;
@@ -372,12 +366,10 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
     width: 100%;
     height: auto;
     max-height: min(60vh, 520px);
-    /* 切れることなく画像全体を枠内に収める */
     object-fit: contain; 
     display: block;
 }
 
-/* 矢印ボタンのデザイン */
 .swiper-button-next, .swiper-button-prev {
     color: var(--primary) !important;
     background: rgba(255, 255, 255, 0.85);
@@ -392,7 +384,6 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
     font-weight: bold;
 }
 
-/* 右下の小さなプレビュー表示領域 */
 .next-preview-box {
     position: absolute;
     bottom: 12px;
@@ -426,7 +417,7 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
 }
 
 .next-preview-thumb {
-    width: 28px; /* プレビューサムネイルもコンパクト化 */
+    width: 28px; 
     height: 50px;
     object-fit: cover;
     border-radius: 3px;
@@ -435,11 +426,11 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
 
 @media (max-width: 480px) {
     .gallery-container {
-        max-width: 280px; /* スマホ表示時はさらにコンパクトに */
+        max-width: 280px; 
     }
     .gallery-swiper,
     .gallery-swiper img {
-        max-height: 50vh; /* スマホ画面の半分程度の高さに抑える */
+        max-height: 50vh; 
     }
     .next-preview-thumb {
         width: 24px;
@@ -558,9 +549,7 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
             夢は「大金持ちになること！」らしい。
         </div>
         
-        <!-- ★ギャラリー（1510*2777 縦長画像対応） -->
         <div class="gallery-container">
-            <!-- Swiper本体 -->
             <div class="swiper gallery-swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide"><img src="S25.webp" alt="ギャラリー画像1" width="1510" height="2777" loading="lazy"></div>
@@ -572,7 +561,6 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
                 <div class="swiper-button-prev"></div>
             </div>
 
-            <!-- 右下に重なる「次の画像プレビュー」 -->
             <div class="next-preview-box" id="nextPreviewBox">
                 <span class="next-preview-badge">NEXT ❯</span>
                 <img src="img1.webp" alt="次の画像プレビュー" class="next-preview-thumb" id="nextPreviewThumb">
@@ -658,17 +646,15 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<!-- Swiperのプログラムを読み込み -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // 画像のリスト（HTMLの並び順通り）
         const galleryImages = ['S25.webp', 'S26.webp', 'S27.webp', 'S28.webp'];
         const previewThumb = document.getElementById('nextPreviewThumb');
         const previewBox = document.getElementById('nextPreviewBox');
 
         const gallerySwiper = new Swiper('.gallery-swiper', {
-            loop: true, // 画像が最後に行ったら最初に戻るループ再生
+            loop: true, 
             spaceBetween: 10,
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -676,7 +662,6 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
             },
             grabCursor: true,
             on: {
-                // スライド切り替え時に右下のプレビュー画像を「次の画像」に自動更新
                 slideChange: function () {
                     const nextIndex = (this.realIndex + 1) % galleryImages.length;
                     previewThumb.src = galleryImages[nextIndex];
@@ -684,12 +669,10 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
             }
         });
 
-              // 右下のプレビュー領域をタップ（クリック）したら次の画像へ進む
         previewBox.addEventListener('click', function () {
             gallerySwiper.slideNext();
         });
         
-        // iPhone向けに動画を再生
         const video = document.getElementById("headerVideo");
         
         video.muted = true;
