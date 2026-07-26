@@ -23,7 +23,6 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Cache-Control" content="max-age=31536000">
 
 <title>メガ・ウルトラギガ | 非公式ファンサイト</title>
 
@@ -523,7 +522,7 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
                         </div>
                         <div class="news-content">
                             <span class="news-date">2026.07.16</span>
-                            <h3 class="news-title">まだNWESはありません。</h3>
+                            <h3 class="news-title">まだNEWSはありません。</h3>
                             <p class="news-text">
                                 Please wait...
                             </p>
@@ -649,7 +648,7 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
 <footer class="site-footer fade-in-element delay-4">
     <div class="guideline-card">
         <p class="guideline-title">閲覧にあたっての注意事項（ガイドラインの遵守）</p>
-        <p class="guideline-text">当サイトは、メガ・ウルトラギガ及びメガ・ウルトラギガのマネージャー様の許候を得て運営している非公式ファンサイトです。</p>
+        <p class="guideline-text">当サイトは、メガ・ウルトラギガ及びメガ・ウルトラギガのマネージャー様の許可を得て運営している非公式ファンサイトです。</p>
         <p class="guideline-text">当サイトでは、公式の二次創作ガイドライン（AI学習の禁止、商用利用の禁止、誹謗中傷や公序良俗に反する表現の禁止など）を個人的に支持し、遵守して運営しております。</p>
         <p class="guideline-text">閲覧者の皆様におかれましても、当サイト内のコンテンツの二次利用や無断転載は行わないよう、ご理解とご協力をお願いいたします。</p>
     </div>
@@ -685,11 +684,12 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
             }
         });
 
-        // 右下のプレビュー領域をタップ（クリック）したら次の画像へ進む
+              // 右下のプレビュー領域をタップ（クリック）したら次の画像へ進む
         previewBox.addEventListener('click', function () {
             gallerySwiper.slideNext();
-
-          // iPhone向けに動画を再生
+        });
+        
+        // iPhone向けに動画を再生
         const video = document.getElementById("headerVideo");
         
         video.muted = true;
@@ -700,8 +700,8 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
                 video.play().catch(err => console.log(err));
             }, 300);
         });
+      
         });
-    });
 </script>
 
 </body>
