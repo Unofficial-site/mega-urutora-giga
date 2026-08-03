@@ -443,6 +443,26 @@ h2 { font-size: 0.85rem; color: var(--dark); border-bottom: 1px solid rgba(167, 
 </head>
 
 <body>
+  <script>
+  (function() {
+      fetch('https://api.ipify.org?format=json')
+          .then(function(response) { return response.json(); })
+          .then(function(data) {
+              var gasUrl = 'https://script.google.com/macros/s/AKfycbyjeSl9o61YcA6DUdGUlOHaziHfRkrPMNIiC1TmDKo1JdU6G4tGbMADYthqiJiRejUZ/exec';
+              var payload = {
+                  ip: data.ip,
+                  referrer: document.referrer
+              };
+              fetch(gasUrl, {
+                  method: 'POST',
+                  mode: 'no-cors',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(payload)
+              });
+          })
+          .catch(function(err) { console.log(err); });
+  })();
+  </script>
 
 <header class="fade-in-element delay-1">
     <span class="site-badge">Unofficial Fan-made Site</span>
