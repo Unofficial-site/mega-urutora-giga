@@ -3,8 +3,8 @@ class IncludeHTML extends HTMLElement {
     const file = this.getAttribute('src');
     if (file) {
       try {
-        const response = await fetch(file);
-        if (response.ok) {
+        const response = await fetch(file,｛ mode: ’cors’ ｝);
+ '      if (response.ok) {
           const html = await response.text();
           // 自分自身（<include-html>）を中身のHTML（news.html）に直接置き換える
           this.outerHTML = html;
