@@ -5,7 +5,9 @@ class IncludeHTML extends HTMLElement {
       try {
         const response = await fetch(file);
         if (response.ok) {
-          this.innerHTML = await response.text();
+          const html = await response.text();
+          // 自分自身（<include-html>）を中身のHTML（news.html）に直接置き換える
+          this.outerHTML = html;
         }
       } catch (error) {
         console.error('読み込み失敗:', error);
@@ -14,6 +16,7 @@ class IncludeHTML extends HTMLElement {
   }
 }
 customElements.define('include-html', IncludeHTML);
+
 // 【1】IP取得とGASへのアクセス情報送信処理
 (function() {
     fetch('https://api.ipify.org?format=json')
