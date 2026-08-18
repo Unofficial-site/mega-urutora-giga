@@ -156,3 +156,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+document.addEventListener('DOMContentLoaded', function () {
+
+    fetch('news.html')
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error('news.html の読み込みに失敗しました');
+            }
+
+            return response.text();
+        })
+        .then(function(html) {
+            document.getElementById('news-container').innerHTML = html;
+        })
+        .catch(function(error) {
+            console.error(error);
+        });
+
+});
