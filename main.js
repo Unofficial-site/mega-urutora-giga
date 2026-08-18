@@ -1,90 +1,28 @@
-// =========================================================
-// main.js
-// メガ・ウルトラギガ 非公式ファンサイト
-// =========================================================
+/* =========================================================
+   main.js
+   メガ・ウルトラギガ 非公式ファンサイト
+   ========================================================= */
 
+document.addEventListener("DOMContentLoaded", () => {
 
-// =========================================================
-// 1. IP取得 → GASへアクセス情報送信
-// =========================================================
+    /* =====================================================
+       NEWS HTML 読み込み
+       ===================================================== */
 
-(function () {
-
-    fetch('https://api.ipify.org?format=json')
-
-        .then(function (response) {
-
-            if (!response.ok) {
-                throw new Error('IPアドレスの取得に失敗しました');
-            }
-
-            return response.json();
-
-        })
-
-        .then(function (data) {
-
-            var gasUrl =
-                'https://script.google.com/macros/s/AKfycbyjeSl9o61YcA6DUdGUlOHaziHfRkrPMNIiC1TmDKo1JdU6G4tGbMADYthqiJiRejUZ/exec';
-
-            var payload = {
-                ip: data.ip,
-                referrer: document.referrer
-            };
-
-            return fetch(gasUrl, {
-
-                method: 'POST',
-
-                mode: 'no-cors',
-
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-
-                body: JSON.stringify(payload)
-
-            });
-
-        })
-
-        .catch(function (error) {
-
-            console.log(
-                'アクセス情報の送信に失敗しました:',
-                error
-            );
-
-        });
-
-})();
-
-
-// =========================================================
-// 2. DOM読み込み完了後
-// =========================================================
-
-document.addEventListener('DOMContentLoaded', function () {
-
-
-    // =====================================================
-    // NEWS読み込み
-    // =====================================================
-
-    var newsContainer =
-        document.getElementById('news-container');
+    const newsContainer =
+        document.getElementById("news-container");
 
 
     if (newsContainer) {
 
-        fetch('news.html')
+        fetch("news.html")
 
-            .then(function (response) {
+            .then(response => {
 
                 if (!response.ok) {
 
                     throw new Error(
-                        'news.html の読み込みに失敗しました'
+                        `NEWSの読み込みに失敗しました: ${response.status}`
                     );
 
                 }
@@ -93,245 +31,293 @@ document.addEventListener('DOMContentLoaded', function () {
 
             })
 
-            .then(function (html) {
+            .then(html => {
 
                 newsContainer.innerHTML = html;
 
             })
 
-            .catch(function (error) {
+            .catch(error => {
 
-                console.error(
-                    'NEWSの読み込みに失敗しました:',
-                    error
-                );
+                console.error(error);
+
+                newsContainer.innerHTML = `
+                    <div class="news-load-error">
+                        NEWSを読み込めませんでした。
+                    </div>
+                `;
 
             });
 
     }
 
 
-    // =====================================================
-    // Swiper ギャラリー
-    // =====================================================
-
-    var galleryImages = [
-
-        'S25.webp',
-        'S26.webp',
-        'S27.webp',
-        'S28.webp'
-
-    ];
-
-
-    var previewThumb =
-        document.getElementById('nextPreviewThumb');
-
-
-    var previewBox =
-        document.getElementById('nextPreviewBox');
-
-
-    var galleryElement =
-        document.querySelector('.gallery-swiper');
-
-
-    var gallerySwiper = null;
-
-
-    /*
-     * ギャラリーが存在し、
-     * Swiper.jsが正常に読み込まれている場合のみ初期化
-     */
+    /* =====================================================
+       Swiper
+       ===================================================== */
 
     if (
-        galleryElement &&
-        typeof Swiper !== 'undefined'
+        typeof Swiper !== "undefined" &&
+        document.querySelector(".gallery-swiper")
     ) {
 
-        gallerySwiper = new Swiper(
-            '.gallery-swiper',
-            {
+        const gallerySwiper =
+            new Swiper(".gallery-swiper", {
 
                 loop: true,
 
-                spaceBetween: 10,
+                slidesPerView: 1,
 
-                grabCursor: true,
-
+                spaceBetween: 0,
 
                 navigation: {
-
-                    nextEl: '.swiper-button-next',
-
-                    prevEl: '.swiper-button-prev'
-
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
                 },
 
+                speed: 500,
 
-                on: {
+                grabCursor: true
 
-                    init: function () {
-
-                        /*
-                         * 初期表示時にも
-                         * NEXT画像を正しく設定
-                         */
-
-                        updateNextPreview(this);
-
-                    },
+            });
 
 
-                    slideChange: function () {
+        /* ===============================================
+           NEXT PREVIEW
+           =============================================== */
 
-                        /*
-                         * スライド変更時に
-                         * NEXTプレビューを更新
-                         */
+        const previewBox =
+            document.getElementById("nextPreviewBox");
 
-                        updateNextPreview(this);
 
-                    }
+        const previewThumb =
+            document.getElementById("nextPreviewThumb");
+
+
+        if (
+            previewBox &&
+            previewThumb
+        ) {
+
+            const updateNextPreview = () => {
+
+                const slides =
+                    document.querySelectorAll(
+                        ".gallery-swiper .swiper-slide"
+                    );
+
+
+                if (!slides.length) {
+                    return;
+                }
+
+
+                /*
+                 * Swiperのloopによる複製スライドを考慮して
+                 * 元のスライド数を取得
+                 */
+
+                const totalSlides =
+                    gallerySwiper.slides.length;
+
+
+                if (!totalSlides) {
+                    return;
+                }
+
+
+                let nextIndex =
+                    gallerySwiper.realIndex + 1;
+
+
+                /*
+                 * 実際の元スライド数を超えたら最初へ
+                 */
+
+                const originalSlides =
+                    document.querySelectorAll(
+                        ".gallery-swiper .swiper-slide:not(.swiper-slide-duplicate)"
+                    );
+
+
+                if (
+                    originalSlides.length &&
+                    nextIndex >= originalSlides.length
+                ) {
+
+                    nextIndex = 0;
 
                 }
 
-            }
-        );
 
-    }
+                /*
+                 * 元スライドから次画像を取得
+                 */
+
+                let nextSlide =
+                    originalSlides[nextIndex];
 
 
-    // =====================================================
-    // NEXTプレビュー更新
-    // =====================================================
+                /*
+                 * 念のため取得できなかった場合
+                 */
 
-    function updateNextPreview(swiper) {
+                if (!nextSlide) {
 
-        if (!previewThumb) {
-            return;
+                    nextSlide =
+                        slides[nextIndex];
+
+                }
+
+
+                if (!nextSlide) {
+                    return;
+                }
+
+
+                const nextImage =
+                    nextSlide.querySelector("img");
+
+
+                if (!nextImage) {
+                    return;
+                }
+
+
+                previewThumb.src =
+                    nextImage.src;
+
+
+                previewThumb.alt =
+                    "次の画像プレビュー";
+
+            };
+
+
+            updateNextPreview();
+
+
+            gallerySwiper.on(
+                "slideChange",
+                updateNextPreview
+            );
+
+
+            /*
+             * NEXTプレビューをクリックしたら
+             * 次の画像へ移動
+             */
+
+            previewBox.addEventListener(
+                "click",
+                () => {
+
+                    gallerySwiper.slideNext();
+
+                }
+            );
+
         }
 
-
-        var nextIndex =
-            (swiper.realIndex + 1) %
-            galleryImages.length;
-
-
-        previewThumb.src =
-            galleryImages[nextIndex];
-
-
-        /*
-         * 念のためaltも更新
-         */
-
-        previewThumb.alt =
-            '次の画像プレビュー';
-
-
     }
 
 
-    // =====================================================
-    // NEXTプレビュークリック
-    // =====================================================
+    /* =====================================================
+       Header Video
+       ===================================================== */
 
-    if (
-        previewBox &&
-        gallerySwiper
-    ) {
+    const headerVideo =
+        document.getElementById("headerVideo");
 
-        previewBox.addEventListener(
-            'click',
-            function () {
 
-                gallerySwiper.slideNext();
+    if (headerVideo) {
+
+        /*
+         * autoplay対策
+         */
+
+        headerVideo.muted = true;
+
+
+        const playVideo = () => {
+
+            const promise =
+                headerVideo.play();
+
+
+            if (
+                promise &&
+                typeof promise.catch === "function"
+            ) {
+
+                promise.catch(() => {
+                    /*
+                     * ブラウザの自動再生制限時は
+                     * エラー表示しない
+                     */
+                });
 
             }
-        );
 
-    }
-
-
-    // =====================================================
-    // ヘッダー動画
-    // =====================================================
-
-    var video =
-        document.getElementById('headerVideo');
-
-
-    if (video) {
+        };
 
 
         /*
-         * 自動再生対策
+         * 読み込み時
          */
 
-        video.muted = true;
-
-        video.playsInline = true;
+        playVideo();
 
 
         /*
-         * ページ読み込み完了後に再生
+         * ページ表示後にも再試行
          */
 
         window.addEventListener(
-            'load',
-            function () {
-
-                setTimeout(
-                    function () {
-
-                        video.play()
-
-                            .catch(function (error) {
-
-                                console.log(
-                                    '動画の自動再生がブロックされました:',
-                                    error
-                                );
-
-                            });
-
-                    },
-                    300
-                );
-
-            }
-        );
-
-
-        /*
-         * 一部ブラウザで
-         * 読み込み時に再生できなかった場合の保険
-         */
-
-        video.addEventListener(
-            'canplay',
-            function () {
-
-                if (video.paused) {
-
-                    video.play()
-
-                        .catch(function () {
-
-                            /*
-                             * 自動再生が許可されていない場合は
-                             * 何もしない
-                             */
-
-                        });
-
-                }
-
-            }
+            "load",
+            playVideo
         );
 
     }
+
+
+    /* =====================================================
+       外部リンク
+       ===================================================== */
+
+    /*
+     * target="_blank" のリンクについて
+     * noopener noreferrer が付いていない場合に追加
+     */
+
+    document
+        .querySelectorAll(
+            'a[target="_blank"]'
+        )
+        .forEach(link => {
+
+            const rel =
+                link.getAttribute("rel") || "";
+
+
+            const relValues =
+                new Set(
+                    rel
+                        .split(/\s+/)
+                        .filter(Boolean)
+                );
+
+
+            relValues.add("noopener");
+
+            relValues.add("noreferrer");
+
+
+            link.setAttribute(
+                "rel",
+                Array.from(relValues).join(" ")
+            );
+
+        });
 
 });
