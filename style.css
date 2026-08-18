@@ -352,79 +352,26 @@ header {
    NEWS / X POST
    ========================================================= */
 
-/*
- * PC
- *
- * NEWS | POST
- *
- * スマホ
- *
- * POST
- * ↓
- * NEWS
- */
-
 .news-area-grid {
     display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.25fr)
-        minmax(0, 0.75fr);
-
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
     gap: 3rem;
-
     align-items: start;
-
     width: 100%;
 }
-
 
 .news-column,
 .x-column {
     display: flex;
-
     flex-direction: column;
-
     min-width: 0;
 }
 
 
-/* ---------------------------------------------------------
-   Mobile
-   --------------------------------------------------------- */
-
-@media (max-width: 768px) {
-
-    .news-area-grid {
-        grid-template-columns: 1fr;
-
-        gap: 2.5rem;
-    }
-
-
-    /*
-     * HTML上は
-     *
-     * NEWS
-     * POST
-     *
-     * だが、スマホでは
-     *
-     * POST
-     * NEWS
-     *
-     * にする
-     */
-
-    .x-column {
-        order: 1;
-    }
-
-
-    .news-column {
-        order: 2;
-    }
-
+/* NEWS / POST の見出し */
+.news-column h2,
+.x-column h2 {
+    margin-top: 0;
 }
 
 
@@ -433,175 +380,19 @@ header {
    ========================================================= */
 
 .news-list {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 2rem;
-
     width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .news-frame {
     display: block;
     width: 100%;
     height: 430px;
-    border: none;
+    border: 0;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: transparent;
-}
-
-@media (max-width: 768px) {
-    .news-frame {
-        height: 400px;
-    }
-}
-
-
-
-
-/* =========================================================
-   NEWS Box
-   ========================================================= */
-
-.news-box {
-    display: flex;
-
-    gap: 1.2rem;
-
-    align-items: flex-start;
-}
-
-
-.news-box + .news-box {
-    border-top:
-        1px solid
-        rgba(167, 153, 183, 0.15);
-
-    padding-top: 2rem;
-}
-
-
-.news-image {
-    width: 90px;
-    height: 90px;
-
-    flex-shrink: 0;
-
-    background:
-        rgba(255, 255, 255, 0.5);
-
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-
-    border:
-        1px solid
-        var(--glass-border);
-
-    padding: 5px;
-
-    border-radius: 4px;
-
-    box-sizing: border-box;
-}
-
-
-.news-image img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-
-    border-radius: 2px;
-}
-
-
-.news-content {
-    flex-grow: 1;
-
-    min-width: 0;
-}
-
-
-.news-date {
-    display: block;
-
-    font-size: 0.75rem;
-
-    color: var(--primary);
-
-    font-weight: 600;
-
-    letter-spacing: 0.05rem;
-
-    margin-bottom: 0.3rem;
-}
-
-
-.news-title {
-    font-size: 0.95rem;
-
-    font-weight: 600;
-
-    color: var(--dark);
-
-    margin:
-        0
-        0.4rem;
-
-    line-height: 1.4;
-}
-
-
-.news-text {
-    font-size: 0.8rem;
-
-    line-height: 1.6;
-
-    margin: 0;
-
-    color: var(--text);
-
-    opacity: 0.9;
-}
-
-
-/* =========================================================
-   NEWS Mobile
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-    .news-box {
-        flex-direction: row;
-
-        align-items: flex-start;
-
-        text-align: left;
-
-        gap: 1rem;
-    }
-
-
-    .news-image {
-        width: 75px;
-        height: 75px;
-    }
-
-
-    .news-title {
-        font-size: 0.9rem;
-    }
-
-
-    .news-text {
-        font-size: 0.78rem;
-    }
-
 }
 
 
@@ -610,51 +401,66 @@ header {
    ========================================================= */
 
 .x-widget-wrapper {
-    background:
-        rgba(255, 255, 255, 0.4);
-
+    background: rgba(255, 255, 255, 0.4);
     border-radius: 6px;
-
-    border:
-        1px solid
-        var(--glass-border);
-
+    border: 1px solid var(--glass-border);
     padding: 6px;
-
     max-height: 350px;
-
     overflow-y: auto;
-
     min-width: 0;
-
     box-sizing: border-box;
 }
-
 
 .x-widget-wrapper::-webkit-scrollbar {
     width: 6px;
 }
 
-
 .x-widget-wrapper::-webkit-scrollbar-track {
     background: transparent;
 }
 
-
 .x-widget-wrapper::-webkit-scrollbar-thumb {
-    background:
-        rgba(167, 153, 183, 0.5);
-
+    background: rgba(167, 153, 183, 0.5);
     border-radius: 3px;
 }
 
-
 .x-widget-wrapper .twitter-tweet {
     margin: 0 auto !important;
-
     max-width: 100% !important;
 }
 
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .news-area-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    /*
+       スマホ：
+
+       POST
+       ↓
+       NEWS
+    */
+
+    .x-column {
+        order: 1;
+    }
+
+    .news-column {
+        order: 2;
+    }
+
+    .news-frame {
+        height: 430px;
+    }
+}
 
 /* =========================================================
    Profile
@@ -1261,3 +1067,4 @@ h2 {
 include-html {
     display: contents;
 }
+
