@@ -19,10 +19,14 @@
 
 .header-video {
     display: block;
+
     width: 100%;
     max-width: 520px;
+
     height: auto;
+
     margin: 20px auto 0;
+
     border-radius: 8px;
 }
 
@@ -32,6 +36,7 @@
    ========================================================= */
 
 @keyframes gradientBG {
+
     0% {
         background-position: 0% 50%;
     }
@@ -43,10 +48,12 @@
     100% {
         background-position: 0% 50%;
     }
+
 }
 
 
 body {
+
     font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -77,7 +84,12 @@ body {
         );
 
     background-size: 400% 400%;
-    animation: gradientBG 30s ease infinite;
+
+    animation:
+        gradientBG
+        30s
+        ease
+        infinite;
 }
 
 
@@ -86,20 +98,32 @@ body {
    ========================================================= */
 
 @keyframes fadeInUp {
+
     from {
+
         opacity: 0;
-        transform: translateY(15px);
+
+        transform:
+            translateY(15px);
+
     }
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
+
     }
+
 }
 
 
 .fade-in-element {
+
     opacity: 0;
+
     animation:
         fadeInUp
         0.8s
@@ -130,6 +154,7 @@ body {
    ========================================================= */
 
 @keyframes floatingEffect {
+
     0% {
         transform: translateY(0);
     }
@@ -141,18 +166,26 @@ body {
     100% {
         transform: translateY(0);
     }
+
 }
 
 
 .floating {
+
     display: block;
-    animation: floatingEffect 6s ease-in-out infinite;
+
+    animation:
+        floatingEffect
+        6s
+        ease-in-out
+        infinite;
 }
 
 
 .rotate-left img {
     transform: rotate(-2.5deg);
 }
+
 
 .rotate-right img {
     transform: rotate(2deg);
@@ -161,6 +194,7 @@ body {
 
 .image-box img,
 .bottom-image-box img {
+
     transition:
         transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
         box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -171,11 +205,17 @@ body {
 
 .image-box.rotate-left:hover img,
 .image-box.rotate-right:hover img {
-    transform: scale(1.02) rotate(0deg);
+
+    transform:
+        scale(1.02)
+        rotate(0deg);
 
     box-shadow:
-        0 14px 28px rgba(109, 94, 125, 0.12),
-        0 3px 8px rgba(0, 0, 0, 0.04);
+        0 14px 28px
+        rgba(109, 94, 125, 0.12),
+
+        0 3px 8px
+        rgba(0, 0, 0, 0.04);
 }
 
 
@@ -184,6 +224,7 @@ body {
    ========================================================= */
 
 header {
+
     text-align: center;
 
     padding:
@@ -196,10 +237,13 @@ header {
 
 
 .site-badge {
+
     font-size: 0.75rem;
+
     color: var(--dark);
 
     letter-spacing: 0.25rem;
+
     text-transform: uppercase;
 
     font-weight: 700;
@@ -213,12 +257,15 @@ header {
 
 
 .header-logo {
+
     width: 100%;
+
     max-width: 520px;
 
     height: auto;
 
-    aspect-ratio: 1527 / 599;
+    aspect-ratio:
+        1527 / 599;
 
     margin: 0 auto;
 
@@ -227,12 +274,15 @@ header {
 
 
 .main-visual {
+
     margin: 0;
+
     line-height: 1;
 }
 
 
 .sub-name {
+
     display: block;
 
     margin-top: 1rem;
@@ -254,20 +304,12 @@ header {
 }
 
 
-@media (max-width: 480px) {
-
-    .header-logo {
-        max-width: 280px;
-    }
-
-}
-
-
 /* =========================================================
    Main Container
    ========================================================= */
 
 .container {
+
     max-width: 960px;
 
     margin: 0 auto;
@@ -281,27 +323,20 @@ header {
 }
 
 
-@media (max-width: 480px) {
-
-    .container {
-        padding:
-            1rem
-            1.2rem
-            2rem;
-    }
-
-}
-
-
 /* =========================================================
    Section
    ========================================================= */
 
 .section-block {
-    background: var(--glass-bg);
 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background:
+        var(--glass-bg);
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
 
     padding: 3rem;
 
@@ -309,23 +344,13 @@ header {
 
     border-radius: 8px;
 
-    border: 1px solid var(--glass-border);
+    border:
+        1px solid
+        var(--glass-border);
 
     box-shadow:
-        0 8px 32px rgba(109, 94, 125, 0.06);
-}
-
-
-@media (max-width: 480px) {
-
-    .section-block {
-        padding:
-            2rem
-            1.5rem;
-
-        margin-bottom: 2rem;
-    }
-
+        0 8px 32px
+        rgba(109, 94, 125, 0.06);
 }
 
 
@@ -339,12 +364,14 @@ header {
    ========================================================= */
 
 .icon-svg {
+
     width: 1.25rem;
     height: 1.25rem;
 
     stroke: var(--primary);
 
-    vertical-align: text-bottom;
+    vertical-align:
+        text-bottom;
 }
 
 
@@ -353,46 +380,245 @@ header {
    ========================================================= */
 
 .news-area-grid {
+
     display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+
+    /*
+       PCでは
+
+       NEWS          POST
+       ────────      ────────
+       画像｜文章    X投稿
+
+    */
+
+    grid-template-columns:
+        minmax(0, 1.25fr)
+        minmax(0, 0.75fr);
+
     gap: 3rem;
+
     align-items: start;
+
     width: 100%;
 }
 
+
 .news-column,
 .x-column {
+
     display: flex;
+
     flex-direction: column;
+
     min-width: 0;
 }
 
 
-/* NEWS / POST の見出し */
+/* =========================================================
+   NEWS / POST Heading
+   ========================================================= */
+
 .news-column h2,
 .x-column h2 {
+
     margin-top: 0;
 }
 
 
 /* =========================================================
-   NEWS iframe
+   NEWS LIST
    ========================================================= */
 
 .news-list {
+
     width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
     margin: 0;
+
     padding: 0;
 }
 
-.news-frame {
-    display: block;
+
+/* =========================================================
+   NEWS BOX
+   ========================================================= */
+
+.news-box {
+
+    display: grid;
+
+    /*
+       画像 | 文章
+    */
+
+    grid-template-columns:
+        120px
+        minmax(0, 1fr);
+
+    gap: 16px;
+
     width: 100%;
-    height: 430px;
-    border: 0;
+
+    align-items: start;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   NEWS IMAGE
+   ========================================================= */
+
+.news-image {
+
+    width: 120px;
+
+    min-width: 120px;
+
     margin: 0;
+
     padding: 0;
-    overflow: hidden;
+}
+
+
+.news-image img {
+
+    display: block;
+
+    width: 120px;
+
+    height: 120px;
+
+    object-fit: cover;
+
+    border-radius: 6px;
+
+    border:
+        1px solid
+        var(--glass-border);
+
+    box-sizing: border-box;
+
+    background:
+        rgba(255, 255, 255, 0.7);
+}
+
+
+/* =========================================================
+   NEWS CONTENT
+   ========================================================= */
+
+.news-content {
+
+    min-width: 0;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+/* =========================================================
+   NEWS DATE
+   ========================================================= */
+
+.news-date {
+
+    display: block;
+
+    margin:
+        0
+        0
+        5px;
+
+    padding: 0;
+
+    font-size: 0.75rem;
+
+    line-height: 1.4;
+
+    color: var(--primary);
+
+    font-weight: 600;
+
+    letter-spacing: 0.05rem;
+}
+
+
+/* =========================================================
+   NEWS TITLE
+   ========================================================= */
+
+.news-title {
+
+    margin:
+        0
+        0
+        8px;
+
+    padding: 0;
+
+    border: 0;
+
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+
+    color: var(--dark);
+
+    font-weight: 700;
+
+    letter-spacing: 0.02rem;
+}
+
+
+/* =========================================================
+   NEWS TEXT
+   ========================================================= */
+
+.news-text {
+
+    margin: 0;
+
+    padding: 0;
+
+    font-size: 0.8rem;
+
+    line-height: 1.7;
+
+    color: var(--text);
+}
+
+
+/* =========================================================
+   NEWS Load Error
+   ========================================================= */
+
+.news-load-error {
+
+    padding: 1rem;
+
+    text-align: center;
+
+    font-size: 0.8rem;
+
+    color: var(--text);
+
+    background:
+        rgba(255, 255, 255, 0.5);
+
+    border:
+        1px solid
+        var(--glass-border);
+
+    border-radius: 6px;
 }
 
 
@@ -401,72 +627,66 @@ header {
    ========================================================= */
 
 .x-widget-wrapper {
-    background: rgba(255, 255, 255, 0.4);
+
+    background:
+        rgba(255, 255, 255, 0.4);
+
     border-radius: 6px;
-    border: 1px solid var(--glass-border);
+
+    border:
+        1px solid
+        var(--glass-border);
+
     padding: 6px;
+
     max-height: 350px;
+
     overflow-y: auto;
+
     min-width: 0;
+
     box-sizing: border-box;
 }
 
+
 .x-widget-wrapper::-webkit-scrollbar {
+
     width: 6px;
 }
 
+
 .x-widget-wrapper::-webkit-scrollbar-track {
+
     background: transparent;
 }
 
+
 .x-widget-wrapper::-webkit-scrollbar-thumb {
-    background: rgba(167, 153, 183, 0.5);
+
+    background:
+        rgba(167, 153, 183, 0.5);
+
     border-radius: 3px;
 }
 
+
 .x-widget-wrapper .twitter-tweet {
-    margin: 0 auto !important;
-    max-width: 100% !important;
+
+    margin:
+        0
+        auto !important;
+
+    max-width:
+        100% !important;
 }
 
-
-/* =========================================================
-   Mobile
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-    .news-area-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
-
-    /*
-       スマホ：
-
-       POST
-       ↓
-       NEWS
-    */
-
-    .x-column {
-        order: 1;
-    }
-
-    .news-column {
-        order: 2;
-    }
-
-    .news-frame {
-        height: 430px;
-    }
-}
 
 /* =========================================================
    Profile
    ========================================================= */
 
 .profile-box {
+
     color: var(--text);
 
     font-size: 0.95rem;
@@ -486,20 +706,25 @@ header {
    ========================================================= */
 
 .image-box {
+
     text-align: center;
 
-    margin: 3rem 0;
+    margin:
+        3rem
+        0;
 }
 
 
 .image-box img {
+
     width: 100%;
 
     max-width: 480px;
 
     height: auto;
 
-    aspect-ratio: 16 / 9;
+    aspect-ratio:
+        16 / 9;
 
     object-fit: cover;
 
@@ -512,8 +737,11 @@ header {
     background:
         rgba(255, 255, 255, 0.7);
 
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter:
+        blur(4px);
+
+    -webkit-backdrop-filter:
+        blur(4px);
 
     border-radius: 4px;
 
@@ -530,6 +758,7 @@ header {
    ========================================================= */
 
 h2 {
+
     font-size: 0.85rem;
 
     color: var(--dark);
@@ -558,8 +787,10 @@ h2 {
 
 
 /* NEWS / POST の見出しだけ上余白を抑える */
+
 .news-column h2,
 .x-column h2 {
+
     margin-top: 0;
 }
 
@@ -569,6 +800,7 @@ h2 {
    ========================================================= */
 
 .info-list {
+
     font-size: 0.95rem;
 
     line-height: 2.1;
@@ -590,6 +822,7 @@ h2 {
    ========================================================= */
 
 .video-wrapper {
+
     position: relative;
 
     padding-bottom: 56.25%;
@@ -616,6 +849,7 @@ h2 {
 
 
 .video-wrapper iframe {
+
     position: absolute;
 
     top: 0;
@@ -633,9 +867,12 @@ h2 {
    ========================================================= */
 
 .btn-grid {
+
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr
+        1fr;
 
     gap: 16px;
 
@@ -644,6 +881,7 @@ h2 {
 
 
 .btn-wrapper {
+
     display: flex;
 
     flex-direction: column;
@@ -653,6 +891,7 @@ h2 {
 
 
 .btn {
+
     display: flex;
 
     align-items: center;
@@ -678,8 +917,11 @@ h2 {
     background:
         rgba(255, 255, 255, 0.75);
 
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter:
+        blur(4px);
+
+    -webkit-backdrop-filter:
+        blur(4px);
 
     border:
         1px solid
@@ -693,11 +935,15 @@ h2 {
 
 
 .btn:hover {
-    background: #FFFFFF;
 
-    border-color: var(--primary);
+    background:
+        #FFFFFF;
 
-    transform: translateY(-2px);
+    border-color:
+        var(--primary);
+
+    transform:
+        translateY(-2px);
 
     box-shadow:
         0 4px 12px
@@ -706,14 +952,18 @@ h2 {
 
 
 .x-logo {
+
     width: 13px;
+
     height: 13px;
 
-    fill: var(--primary);
+    fill:
+        var(--primary);
 }
 
 
 .novel-info {
+
     font-size: 0.65rem;
 
     text-align: center;
@@ -727,15 +977,19 @@ h2 {
 
 
 .btn-contact {
-    background: var(--dark);
 
-    color: #FFFFFF;
+    background:
+        var(--dark);
+
+    color:
+        #FFFFFF;
 
     border:
         1px solid
         var(--dark);
 
-    grid-column: span 2;
+    grid-column:
+        span 2;
 
     margin-top: 12px;
 }
@@ -746,6 +1000,7 @@ h2 {
    ========================================================= */
 
 .gallery-container {
+
     position: relative;
 
     width: 100%;
@@ -777,12 +1032,15 @@ h2 {
 
 
 .gallery-swiper {
+
     width: 100%;
+
     height: auto;
 }
 
 
 .gallery-swiper .swiper-slide {
+
     display: flex;
 
     align-items: center;
@@ -794,6 +1052,7 @@ h2 {
 
 
 .gallery-swiper img {
+
     width: 100%;
 
     height: auto;
@@ -812,17 +1071,21 @@ h2 {
 
 .swiper-button-next,
 .swiper-button-prev {
-    color: var(--primary) !important;
+
+    color:
+        var(--primary) !important;
 
     background:
         rgba(255, 255, 255, 0.85);
 
     width: 36px !important;
+
     height: 36px !important;
 
     border-radius: 50%;
 
-    backdrop-filter: blur(4px);
+    backdrop-filter:
+        blur(4px);
 
     box-shadow:
         0 4px 12px
@@ -832,7 +1095,9 @@ h2 {
 
 .swiper-button-next:after,
 .swiper-button-prev:after {
-    font-size: 0.9rem !important;
+
+    font-size:
+        0.9rem !important;
 
     font-weight: bold;
 }
@@ -843,9 +1108,11 @@ h2 {
    ========================================================= */
 
 .next-preview-box {
+
     position: absolute;
 
     bottom: 8px;
+
     right: 8px;
 
     z-index: 10;
@@ -853,8 +1120,11 @@ h2 {
     background:
         rgba(255, 255, 255, 0.85);
 
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter:
+        blur(6px);
+
+    -webkit-backdrop-filter:
+        blur(6px);
 
     padding: 4px;
 
@@ -882,11 +1152,14 @@ h2 {
 
 
 .next-preview-box:hover {
-    transform: scale(1.05);
+
+    transform:
+        scale(1.05);
 }
 
 
 .next-preview-badge {
+
     font-size: 0.55rem;
 
     font-weight: 700;
@@ -900,7 +1173,9 @@ h2 {
 
 
 .next-preview-thumb {
+
     width: 24px;
+
     height: 40px;
 
     object-fit: cover;
@@ -916,6 +1191,7 @@ h2 {
    ========================================================= */
 
 .bottom-image-box {
+
     text-align: center;
 
     margin:
@@ -926,13 +1202,15 @@ h2 {
 
 
 .bottom-image-box img {
+
     width: 100%;
 
     max-width: 320px;
 
     height: auto;
 
-    aspect-ratio: 16 / 9;
+    aspect-ratio:
+        16 / 9;
 
     object-fit: cover;
 
@@ -945,8 +1223,11 @@ h2 {
     background:
         rgba(255, 255, 255, 0.7);
 
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter:
+        blur(4px);
+
+    -webkit-backdrop-filter:
+        blur(4px);
 
     border-radius: 4px;
 
@@ -954,7 +1235,8 @@ h2 {
         0 8px 24px
         rgba(109, 94, 125, 0.08);
 
-    transform: rotate(-3deg);
+    transform:
+        rotate(-3deg);
 }
 
 
@@ -963,6 +1245,7 @@ h2 {
    ========================================================= */
 
 .site-footer {
+
     text-align: center;
 
     padding:
@@ -974,11 +1257,13 @@ h2 {
 
     line-height: 1.8;
 
-    color: #4A444D;
+    color:
+        #4A444D;
 }
 
 
 .guideline-card {
+
     max-width: 680px;
 
     margin:
@@ -991,8 +1276,11 @@ h2 {
     background:
         var(--glass-bg);
 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
 
     padding: 2rem;
 
@@ -1009,22 +1297,26 @@ h2 {
 
 
 .guideline-title {
+
     font-weight: bold;
 
     margin-bottom: 0.8rem;
 
-    color: var(--dark);
+    color:
+        var(--dark);
 
     text-align: center;
 }
 
 
 .copyright-sub {
+
     margin-bottom: 0;
 
     font-size: 0.8rem;
 
-    color: #6D6373;
+    color:
+        #6D6373;
 }
 
 
@@ -1032,29 +1324,192 @@ h2 {
    Responsive
    ========================================================= */
 
-@media (max-width: 580px) {
+@media (max-width: 768px) {
 
-    .btn-grid {
+    /*
+       NEWS / POST
+
+       スマホでは
+
+       POST
+       ↓
+       NEWS
+    */
+
+    .news-area-grid {
+
         grid-template-columns: 1fr;
+
+        gap: 2.5rem;
     }
 
 
-    .btn-contact {
-        grid-column: span 1;
+    .x-column {
+
+        order: 1;
+    }
+
+
+    .news-column {
+
+        order: 2;
+    }
+
+
+    /*
+       NEWS自体はスマホでも
+
+       [画像] [文章]
+
+       の横並びを維持
+    */
+
+    .news-box {
+
+        grid-template-columns:
+            90px
+            minmax(0, 1fr);
+
+        gap: 12px;
+    }
+
+
+    .news-image {
+
+        width: 90px;
+
+        min-width: 90px;
+    }
+
+
+    .news-image img {
+
+        width: 90px;
+
+        height: 90px;
+    }
+
+
+    .news-title {
+
+        font-size: 0.82rem;
+
+        line-height: 1.55;
+    }
+
+
+    .news-text {
+
+        font-size: 0.75rem;
+
+        line-height: 1.6;
     }
 
 }
 
 
+/* =========================================================
+   Mobile Header
+   ========================================================= */
+
 @media (max-width: 480px) {
 
+    .header-logo {
+
+        max-width: 280px;
+    }
+
+
+    .container {
+
+        padding:
+            1rem
+            1.2rem
+            2rem;
+    }
+
+
+    .section-block {
+
+        padding:
+            2rem
+            1.5rem;
+
+        margin-bottom: 2rem;
+    }
+
+
     .gallery-container {
+
         max-width: 240px;
     }
 
 
     .gallery-swiper img {
+
         max-height: 300px;
+    }
+
+}
+
+
+/* =========================================================
+   Very Small Screen
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    /*
+       NEWS
+
+       [小さい画像] [文章]
+    */
+
+    .news-box {
+
+        grid-template-columns:
+            75px
+            minmax(0, 1fr);
+
+        gap: 10px;
+    }
+
+
+    .news-image {
+
+        width: 75px;
+
+        min-width: 75px;
+    }
+
+
+    .news-image img {
+
+        width: 75px;
+
+        height: 75px;
+    }
+
+}
+
+
+/* =========================================================
+   Button Responsive
+   ========================================================= */
+
+@media (max-width: 580px) {
+
+    .btn-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .btn-contact {
+
+        grid-column:
+            span 1;
     }
 
 }
@@ -1065,6 +1520,6 @@ h2 {
    ========================================================= */
 
 include-html {
+
     display: contents;
 }
-
