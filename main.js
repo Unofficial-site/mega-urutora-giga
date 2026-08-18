@@ -1,5 +1,6 @@
 // =========================================================
 // main.js
+// メガ・ウルトラギガ 非公式ファンサイト
 // =========================================================
 
 
@@ -27,15 +28,11 @@
                 'https://script.google.com/macros/s/AKfycbyjeSl9o61YcA6DUdGUlOHaziHfRkrPMNIiC1TmDKo1JdU6G4tGbMADYthqiJiRejUZ/exec';
 
             var payload = {
-
                 ip: data.ip,
-
                 referrer: document.referrer
-
             };
 
-
-            fetch(gasUrl, {
+            return fetch(gasUrl, {
 
                 method: 'POST',
 
@@ -47,29 +44,20 @@
 
                 body: JSON.stringify(payload)
 
-            })
-            .catch(function (err) {
-
-                console.log(
-                    'アクセス情報の送信に失敗しました:',
-                    err
-                );
-
             });
 
         })
 
-        .catch(function (err) {
+        .catch(function (error) {
 
             console.log(
-                'IPアドレスの取得に失敗しました:',
-                err
+                'アクセス情報の送信に失敗しました:',
+                error
             );
 
         });
 
 })();
-
 
 
 // =========================================================
@@ -83,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // NEWS読み込み
     // =====================================================
 
-    const newsContainer =
+    var newsContainer =
         document.getElementById('news-container');
 
 
@@ -123,12 +111,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-
     // =====================================================
     // Swiper ギャラリー
     // =====================================================
 
-    const galleryImages = [
+    var galleryImages = [
 
         'S25.webp',
         'S26.webp',
@@ -138,22 +125,25 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
 
-    const previewThumb =
+    var previewThumb =
         document.getElementById('nextPreviewThumb');
 
 
-    const previewBox =
+    var previewBox =
         document.getElementById('nextPreviewBox');
 
 
-    let gallerySwiper = null;
-
-
-    const galleryElement =
+    var galleryElement =
         document.querySelector('.gallery-swiper');
 
 
-    // Swiperが存在する場合だけ初期化
+    var gallerySwiper = null;
+
+
+    /*
+     * ギャラリーが存在し、
+     * Swiper.jsが正常に読み込まれている場合のみ初期化
+     */
 
     if (
         galleryElement &&
@@ -168,6 +158,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 spaceBetween: 10,
 
+                grabCursor: true,
+
+
                 navigation: {
 
                     nextEl: '.swiper-button-next',
@@ -176,24 +169,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 },
 
-                grabCursor: true,
-
 
                 on: {
 
+                    init: function () {
+
+                        /*
+                         * 初期表示時にも
+                         * NEXT画像を正しく設定
+                         */
+
+                        updateNextPreview(this);
+
+                    },
+
+
                     slideChange: function () {
 
-                        const nextIndex =
-                            (this.realIndex + 1) %
-                            galleryImages.length;
+                        /*
+                         * スライド変更時に
+                         * NEXTプレビューを更新
+                         */
 
-
-                        if (previewThumb) {
-
-                            previewThumb.src =
-                                galleryImages[nextIndex];
-
-                        }
+                        updateNextPreview(this);
 
                     }
 
@@ -204,6 +202,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
+
+    // =====================================================
+    // NEXTプレビュー更新
+    // =====================================================
+
+    function updateNextPreview(swiper) {
+
+        if (!previewThumb) {
+            return;
+        }
+
+
+        var nextIndex =
+            (swiper.realIndex + 1) %
+            galleryImages.length;
+
+
+        previewThumb.src =
+            galleryImages[nextIndex];
+
+
+        /*
+         * 念のためaltも更新
+         */
+
+        previewThumb.alt =
+            '次の画像プレビュー';
+
+
+    }
 
 
     // =====================================================
@@ -227,35 +255,29 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-
-    // =====================================================
-    // NEXTプレビュー初期画像
-    // =====================================================
-
-    if (previewThumb) {
-
-        previewThumb.src = galleryImages[1];
-
-    }
-
-
-
     // =====================================================
     // ヘッダー動画
     // =====================================================
 
-    const video =
+    var video =
         document.getElementById('headerVideo');
 
 
     if (video) {
+
+
+        /*
+         * 自動再生対策
+         */
 
         video.muted = true;
 
         video.playsInline = true;
 
 
-        // ページ読み込み完了後に再生
+        /*
+         * ページ読み込み完了後に再生
+         */
 
         window.addEventListener(
             'load',
@@ -266,11 +288,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         video.play()
 
-                            .catch(function (err) {
+                            .catch(function (error) {
 
                                 console.log(
                                     '動画の自動再生がブロックされました:',
-                                    err
+                                    error
                                 );
 
                             });
@@ -282,7 +304,34 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         );
 
-    }
 
+        /*
+         * 一部ブラウザで
+         * 読み込み時に再生できなかった場合の保険
+         */
+
+        video.addEventListener(
+            'canplay',
+            function () {
+
+                if (video.paused) {
+
+                    video.play()
+
+                        .catch(function () {
+
+                            /*
+                             * 自動再生が許可されていない場合は
+                             * 何もしない
+                             */
+
+                        });
+
+                }
+
+            }
+        );
+
+    }
 
 });
