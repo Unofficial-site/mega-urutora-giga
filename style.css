@@ -14,6 +14,30 @@
 
 
 /* =========================================================
+   Reset / Box sizing
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
    Header Video
    ========================================================= */
 
@@ -28,6 +52,8 @@
     margin: 20px auto 0;
 
     border-radius: 8px;
+
+    background: rgba(0, 0, 0, 0.05);
 }
 
 
@@ -67,9 +93,6 @@ body {
 
     color: var(--text);
 
-    margin: 0;
-    padding: 0;
-
     overflow-x: hidden;
 
     -webkit-font-smoothing: antialiased;
@@ -100,21 +123,13 @@ body {
 @keyframes fadeInUp {
 
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(15px);
-
+        transform: translateY(15px);
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0);
-
+        transform: translateY(0);
     }
 
 }
@@ -203,7 +218,18 @@ body {
 }
 
 
-.image-box.rotate-left:hover img,
+.image-box.rotate-left:hover img {
+
+    transform:
+        scale(1.02)
+        rotate(0deg);
+
+    box-shadow:
+        0 14px 28px rgba(109, 94, 125, 0.12),
+        0 3px 8px rgba(0, 0, 0, 0.04);
+}
+
+
 .image-box.rotate-right:hover img {
 
     transform:
@@ -211,11 +237,8 @@ body {
         rotate(0deg);
 
     box-shadow:
-        0 14px 28px
-        rgba(109, 94, 125, 0.12),
-
-        0 3px 8px
-        rgba(0, 0, 0, 0.04);
+        0 14px 28px rgba(109, 94, 125, 0.12),
+        0 3px 8px rgba(0, 0, 0, 0.04);
 }
 
 
@@ -264,8 +287,7 @@ header {
 
     height: auto;
 
-    aspect-ratio:
-        1527 / 599;
+    aspect-ratio: 1527 / 599;
 
     margin: 0 auto;
 
@@ -310,6 +332,8 @@ header {
 
 .container {
 
+    width: 100%;
+
     max-width: 960px;
 
     margin: 0 auto;
@@ -318,8 +342,6 @@ header {
         1.5rem
         1.5rem
         3rem;
-
-    box-sizing: border-box;
 }
 
 
@@ -366,12 +388,16 @@ header {
 .icon-svg {
 
     width: 1.25rem;
+
     height: 1.25rem;
 
-    stroke: var(--primary);
+    stroke:
+        var(--primary);
 
     vertical-align:
         text-bottom;
+
+    flex-shrink: 0;
 }
 
 
@@ -382,15 +408,6 @@ header {
 .news-area-grid {
 
     display: grid;
-
-    /*
-       PCでは
-
-       NEWS          POST
-       ────────      ────────
-       画像｜文章    X投稿
-
-    */
 
     grid-template-columns:
         minmax(0, 1.25fr)
@@ -412,6 +429,8 @@ header {
     flex-direction: column;
 
     min-width: 0;
+
+    width: 100%;
 }
 
 
@@ -423,12 +442,22 @@ header {
 .x-column h2 {
 
     margin-top: 0;
+
+    margin-bottom: 1.8rem;
 }
 
 
 /* =========================================================
-   NEWS LIST
+   NEWS Container
    ========================================================= */
+
+#news-container {
+
+    width: 100%;
+
+    min-width: 0;
+}
+
 
 .news-list {
 
@@ -447,36 +476,38 @@ header {
 
 
 /* =========================================================
-   NEWS BOX
+   NEWS Box
+   PC = 画像左 / 文章右
    ========================================================= */
 
 .news-box {
 
     display: grid;
 
-    /*
-       画像 | 文章
-    */
-
     grid-template-columns:
         120px
         minmax(0, 1fr);
 
-    gap: 16px;
-
-    width: 100%;
+    column-gap: 16px;
 
     align-items: start;
 
-    box-sizing: border-box;
+    width: 100%;
+
+    min-width: 0;
+
+    margin: 0;
+
+    padding: 0;
 }
 
 
 /* =========================================================
-   NEWS IMAGE
+   NEWS Image
    ========================================================= */
 
-.news-image {
+.news-image,
+.newsss-image {
 
     width: 120px;
 
@@ -485,10 +516,13 @@ header {
     margin: 0;
 
     padding: 0;
+
+    display: block;
 }
 
 
-.news-image img {
+.news-image img,
+.newsss-image img {
 
     display: block;
 
@@ -504,20 +538,24 @@ header {
         1px solid
         var(--glass-border);
 
-    box-sizing: border-box;
-
     background:
         rgba(255, 255, 255, 0.7);
+
+    box-shadow:
+        0 4px 12px
+        rgba(109, 94, 125, 0.06);
 }
 
 
 /* =========================================================
-   NEWS CONTENT
+   NEWS Content
    ========================================================= */
 
 .news-content {
 
     min-width: 0;
+
+    width: 100%;
 
     margin: 0;
 
@@ -526,7 +564,7 @@ header {
 
 
 /* =========================================================
-   NEWS DATE
+   NEWS Date
    ========================================================= */
 
 .news-date {
@@ -544,7 +582,8 @@ header {
 
     line-height: 1.4;
 
-    color: var(--primary);
+    color:
+        var(--primary);
 
     font-weight: 600;
 
@@ -553,7 +592,7 @@ header {
 
 
 /* =========================================================
-   NEWS TITLE
+   NEWS Title
    ========================================================= */
 
 .news-title {
@@ -571,7 +610,8 @@ header {
 
     line-height: 1.6;
 
-    color: var(--dark);
+    color:
+        var(--dark);
 
     font-weight: 700;
 
@@ -580,7 +620,7 @@ header {
 
 
 /* =========================================================
-   NEWS TEXT
+   NEWS Text
    ========================================================= */
 
 .news-text {
@@ -593,15 +633,20 @@ header {
 
     line-height: 1.7;
 
-    color: var(--text);
+    color:
+        var(--text);
+
+    overflow-wrap: anywhere;
 }
 
 
 /* =========================================================
-   NEWS Load Error
+   NEWS Error
    ========================================================= */
 
 .news-load-error {
+
+    width: 100%;
 
     padding: 1rem;
 
@@ -609,7 +654,8 @@ header {
 
     font-size: 0.8rem;
 
-    color: var(--text);
+    color:
+        var(--text);
 
     background:
         rgba(255, 255, 255, 0.5);
@@ -628,6 +674,12 @@ header {
 
 .x-widget-wrapper {
 
+    width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+
     background:
         rgba(255, 255, 255, 0.4);
 
@@ -643,20 +695,16 @@ header {
 
     overflow-y: auto;
 
-    min-width: 0;
-
-    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 
 .x-widget-wrapper::-webkit-scrollbar {
-
     width: 6px;
 }
 
 
 .x-widget-wrapper::-webkit-scrollbar-track {
-
     background: transparent;
 }
 
@@ -682,12 +730,28 @@ header {
 
 
 /* =========================================================
+   X Logo
+   ========================================================= */
+
+.x-logo {
+
+    width: 13px;
+
+    height: 13px;
+
+    fill:
+        var(--primary);
+}
+
+
+/* =========================================================
    Profile
    ========================================================= */
 
 .profile-box {
 
-    color: var(--text);
+    color:
+        var(--text);
 
     font-size: 0.95rem;
 
@@ -702,16 +766,14 @@ header {
 
 
 /* =========================================================
-   Images
+   General Images
    ========================================================= */
 
 .image-box {
 
     text-align: center;
 
-    margin:
-        3rem
-        0;
+    margin: 3rem 0;
 }
 
 
@@ -723,8 +785,7 @@ header {
 
     height: auto;
 
-    aspect-ratio:
-        16 / 9;
+    aspect-ratio: 16 / 9;
 
     object-fit: cover;
 
@@ -761,7 +822,8 @@ h2 {
 
     font-size: 0.85rem;
 
-    color: var(--dark);
+    color:
+        var(--dark);
 
     border-bottom:
         1px solid
@@ -785,8 +847,6 @@ h2 {
     gap: 10px;
 }
 
-
-/* NEWS / POST の見出しだけ上余白を抑える */
 
 .news-column h2,
 .x-column h2 {
@@ -912,7 +972,8 @@ h2 {
 
     font-weight: 500;
 
-    color: var(--dark);
+    color:
+        var(--dark);
 
     background:
         rgba(255, 255, 255, 0.75);
@@ -951,24 +1012,14 @@ h2 {
 }
 
 
-.x-logo {
-
-    width: 13px;
-
-    height: 13px;
-
-    fill:
-        var(--primary);
-}
-
-
 .novel-info {
 
     font-size: 0.65rem;
 
     text-align: center;
 
-    color: var(--text);
+    color:
+        var(--text);
 
     opacity: 0.7;
 
@@ -1093,11 +1144,10 @@ h2 {
 }
 
 
-.swiper-button-next:after,
-.swiper-button-prev:after {
+.swiper-button-next::after,
+.swiper-button-prev::after {
 
-    font-size:
-        0.9rem !important;
+    font-size: 0.9rem !important;
 
     font-weight: bold;
 }
@@ -1164,7 +1214,8 @@ h2 {
 
     font-weight: 700;
 
-    color: var(--dark);
+    color:
+        var(--dark);
 
     letter-spacing: 0.05rem;
 
@@ -1209,8 +1260,7 @@ h2 {
 
     height: auto;
 
-    aspect-ratio:
-        16 / 9;
+    aspect-ratio: 16 / 9;
 
     object-fit: cover;
 
@@ -1321,20 +1371,10 @@ h2 {
 
 
 /* =========================================================
-   Responsive
+   Mobile
    ========================================================= */
 
 @media (max-width: 768px) {
-
-    /*
-       NEWS / POST
-
-       スマホでは
-
-       POST
-       ↓
-       NEWS
-    */
 
     .news-area-grid {
 
@@ -1344,25 +1384,21 @@ h2 {
     }
 
 
-    .x-column {
+    /*
+       スマホでは POST → NEWS
+    */
 
+    .x-column {
         order: 1;
     }
 
 
     .news-column {
-
         order: 2;
     }
 
 
-    /*
-       NEWS自体はスマホでも
-
-       [画像] [文章]
-
-       の横並びを維持
-    */
+    /* NEWS */
 
     .news-box {
 
@@ -1370,11 +1406,12 @@ h2 {
             90px
             minmax(0, 1fr);
 
-        gap: 12px;
+        column-gap: 12px;
     }
 
 
-    .news-image {
+    .news-image,
+    .newsss-image {
 
         width: 90px;
 
@@ -1382,7 +1419,8 @@ h2 {
     }
 
 
-    .news-image img {
+    .news-image img,
+    .newsss-image img {
 
         width: 90px;
 
@@ -1405,20 +1443,25 @@ h2 {
         line-height: 1.6;
     }
 
+
+    .news-date {
+
+        font-size: 0.7rem;
+    }
+
+
+    .news-frame {
+        height: 430px;
+    }
+
 }
 
 
 /* =========================================================
-   Mobile Header
+   Small Mobile
    ========================================================= */
 
-@media (max-width: 480px) {
-
-    .header-logo {
-
-        max-width: 280px;
-    }
-
+@media (max-width: 580px) {
 
     .container {
 
@@ -1439,6 +1482,42 @@ h2 {
     }
 
 
+    .btn-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .btn-contact {
+
+        grid-column:
+            span 1;
+    }
+
+}
+
+
+/* =========================================================
+   Very Small Mobile
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    header {
+
+        padding:
+            4rem
+            1rem
+            3rem;
+    }
+
+
+    .header-logo {
+
+        max-width: 280px;
+    }
+
+
     .gallery-container {
 
         max-width: 240px;
@@ -1453,17 +1532,7 @@ h2 {
 }
 
 
-/* =========================================================
-   Very Small Screen
-   ========================================================= */
-
 @media (max-width: 380px) {
-
-    /*
-       NEWS
-
-       [小さい画像] [文章]
-    */
 
     .news-box {
 
@@ -1471,11 +1540,12 @@ h2 {
             75px
             minmax(0, 1fr);
 
-        gap: 10px;
+        column-gap: 10px;
     }
 
 
-    .news-image {
+    .news-image,
+    .newsss-image {
 
         width: 75px;
 
@@ -1483,33 +1553,24 @@ h2 {
     }
 
 
-    .news-image img {
+    .news-image img,
+    .newsss-image img {
 
         width: 75px;
 
         height: 75px;
     }
 
-}
 
+    .news-title {
 
-/* =========================================================
-   Button Responsive
-   ========================================================= */
-
-@media (max-width: 580px) {
-
-    .btn-grid {
-
-        grid-template-columns:
-            1fr;
+        font-size: 0.78rem;
     }
 
 
-    .btn-contact {
+    .news-text {
 
-        grid-column:
-            span 1;
+        font-size: 0.72rem;
     }
 
 }
