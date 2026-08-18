@@ -48,7 +48,27 @@
 <link rel="stylesheet" href="style.css">
 
 </head>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
 
+    fetch('news.html')
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error('news.html の読み込みに失敗しました');
+            }
+
+            return response.text();
+        })
+        .then(function(html) {
+            document.getElementById('news-container').innerHTML = html;
+        })
+        .catch(function(error) {
+            console.error(error);
+        });
+
+});
+</script>
+  
 <body>
 
 <header class="fade-in-element delay-1">
@@ -91,37 +111,24 @@
 
         <div class="news-area-grid">
 
-            <!-- NEWS -->
-            <div class="news-column">
+           <div class="news-column">
 
-                <h2>
-                    <svg
-                        class="icon-svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
-                    </svg>
+    <h2>
+        <svg class="icon-svg"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        </svg>
+        NEWS
+    </h2>
 
-                    NEWS
-                </h2>
+    <div id="news-container"></div>
 
-                <div class="news-list">
-
-                    <iframe
-                        src="news.html"
-                        title="NEWS"
-                        class="news-frame"
-                    ></iframe>
-
-                </div>
-
-            </div>
-
+</div>
 
             <!-- X POST -->
             <div class="x-column">
