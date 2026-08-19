@@ -8,8 +8,9 @@
     --accent: #E8E2EE;
     --text: #4A444D;
 
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.5);
+    /* Card */
+    --glass-bg: #FFFFFF;
+    --glass-border: #FFFFFF;
 }
 
 
@@ -53,30 +54,13 @@ body {
 
     border-radius: 8px;
 
-    background: rgba(0, 0, 0, 0.05);
+    background: #E6E6E6;
 }
 
 
 /* =========================================================
    Background
    ========================================================= */
-
-@keyframes gradientBG {
-
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-
-}
-
 
 body {
 
@@ -97,22 +81,8 @@ body {
 
     -webkit-font-smoothing: antialiased;
 
-    background:
-        linear-gradient(
-            -45deg,
-            #FBF9FC,
-            #F3EDF8,
-            #EAE2F1,
-            #F6F0FA
-        );
-
-    background-size: 400% 400%;
-
-    animation:
-        gradientBG
-        30s
-        ease
-        infinite;
+    /* Background */
+    background: #E6E6E6;
 }
 
 
@@ -351,14 +321,7 @@ header {
 
 .section-block {
 
-    background:
-        var(--glass-bg);
-
-    backdrop-filter:
-        blur(8px);
-
-    -webkit-backdrop-filter:
-        blur(8px);
+    background: #FFFFFF;
 
     padding: 3rem;
 
@@ -368,7 +331,7 @@ header {
 
     border:
         1px solid
-        var(--glass-border);
+        #FFFFFF;
 
     box-shadow:
         0 8px 32px
@@ -536,10 +499,10 @@ header {
 
     border:
         1px solid
-        var(--glass-border);
+        #FFFFFF;
 
     background:
-        rgba(255, 255, 255, 0.7);
+        #FFFFFF;
 
     box-shadow:
         0 4px 12px
@@ -658,11 +621,11 @@ header {
         var(--text);
 
     background:
-        rgba(255, 255, 255, 0.5);
+        #FFFFFF;
 
     border:
         1px solid
-        var(--glass-border);
+        #FFFFFF;
 
     border-radius: 6px;
 }
@@ -681,13 +644,13 @@ header {
     box-sizing: border-box;
 
     background:
-        rgba(255, 255, 255, 0.4);
+        #FFFFFF;
 
     border-radius: 6px;
 
     border:
         1px solid
-        var(--glass-border);
+        #FFFFFF;
 
     padding: 6px;
 
@@ -791,18 +754,12 @@ header {
 
     border:
         1px solid
-        var(--glass-border);
+        #FFFFFF;
 
     padding: 12px;
 
     background:
-        rgba(255, 255, 255, 0.7);
-
-    backdrop-filter:
-        blur(4px);
-
-    -webkit-backdrop-filter:
-        blur(4px);
+        #FFFFFF;
 
     border-radius: 4px;
 
@@ -895,7 +852,7 @@ h2 {
 
     border:
         1px solid
-        var(--glass-border);
+        #FFFFFF;
 
     margin:
         1.5rem
@@ -905,6 +862,9 @@ h2 {
     box-shadow:
         0 4px 16px
         rgba(109, 94, 125, 0.04);
+
+    background:
+        #FFFFFF;
 }
 
 
@@ -976,17 +936,11 @@ h2 {
         var(--dark);
 
     background:
-        rgba(255, 255, 255, 0.75);
-
-    backdrop-filter:
-        blur(4px);
-
-    -webkit-backdrop-filter:
-        blur(4px);
+        #FFFFFF;
 
     border:
         1px solid
-        var(--glass-border);
+        #FFFFFF;
 
     transition:
         all 0.2s ease;
@@ -1069,14 +1023,14 @@ h2 {
 
     border:
         1px solid
-        var(--glass-border);
+        #FFFFFF;
 
     box-shadow:
         0 8px 24px
         rgba(109, 94, 125, 0.08);
 
     background:
-        rgba(0, 0, 0, 0.05);
+        #FFFFFF;
 
     box-sizing: border-box;
 }
@@ -1127,16 +1081,13 @@ h2 {
         var(--primary) !important;
 
     background:
-        rgba(255, 255, 255, 0.85);
+        #FFFFFF;
 
     width: 36px !important;
 
     height: 36px !important;
 
     border-radius: 50%;
-
-    backdrop-filter:
-        blur(4px);
 
     box-shadow:
         0 4px 12px
@@ -1168,13 +1119,7 @@ h2 {
     z-index: 10;
 
     background:
-        rgba(255, 255, 255, 0.85);
-
-    backdrop-filter:
-        blur(6px);
-
-    -webkit-backdrop-filter:
-        blur(6px);
+        #FFFFFF;
 
     padding: 4px;
 
@@ -1182,7 +1127,7 @@ h2 {
 
     border:
         1px solid
-        var(--glass-border);
+        #FFFFFF;
 
     box-shadow:
         0 4px 12px
@@ -1266,18 +1211,12 @@ h2 {
 
     border:
         1px solid
-        var(--glass-border);
+        #FFFFFF;
 
     padding: 12px;
 
     background:
-        rgba(255, 255, 255, 0.7);
-
-    backdrop-filter:
-        blur(4px);
-
-    -webkit-backdrop-filter:
-        blur(4px);
+        #FFFFFF;
 
     border-radius: 4px;
 
@@ -1324,13 +1263,7 @@ h2 {
     text-align: left;
 
     background:
-        var(--glass-bg);
-
-    backdrop-filter:
-        blur(8px);
-
-    -webkit-backdrop-filter:
-        blur(8px);
+        #FFFFFF;
 
     padding: 2rem;
 
@@ -1338,7 +1271,7 @@ h2 {
 
     border:
         1px solid
-        var(--glass-border);
+        #FFFFFF;
 
     box-shadow:
         0 8px 32px
