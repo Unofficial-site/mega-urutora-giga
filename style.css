@@ -110,8 +110,8 @@ body {
 @media (max-width: 768px) {
 
     .history-link {
-        top: 50%;
-        left: 100%;
+        top: 4%;
+        left: 80%;
     }
 
 }
