@@ -39,26 +39,6 @@ body {
 
 
 /* =========================================================
-   Header Video
-   ========================================================= */
-
-.header-video {
-    display: block;
-
-    width: 100%;
-    max-width: 520px;
-
-    height: auto;
-
-    margin: 20px auto 0;
-
-    border-radius: 8px;
-
-    background: #E6E6E6;
-}
-
-
-/* =========================================================
    Background
    ========================================================= */
 
@@ -81,7 +61,6 @@ body {
 
     -webkit-font-smoothing: antialiased;
 
-    /* Background */
     background: #E6E6E6;
 }
 
@@ -216,83 +195,65 @@ body {
    Header
    ========================================================= */
 
-header {
+/*
+   上部メイン画像
 
-    text-align: center;
+   スマホ：
+   - 画面幅いっぱい
+   - 1:1
+   - 上端ぴったり
+   - 横方向の余白なし
 
-    padding:
-        5rem
-        1.5rem
-        4rem;
+   PC：
+   - 最大760px
+   - 横中央
+   - 1:1
+   - 上端ぴったり
 
-    background-color: transparent;
-}
+   ※この画像だけ角丸なし
+*/
 
-
-.site-badge {
-
-    font-size: 0.75rem;
-
-    color: var(--dark);
-
-    letter-spacing: 0.25rem;
-
-    text-transform: uppercase;
-
-    font-weight: 700;
-
-    display: block;
-
-    margin-bottom: 1.5rem;
-
-    opacity: 0.8;
-}
-
-
-.header-logo {
+.top-header {
 
     width: 100%;
 
-    max-width: 520px;
+    margin: 0;
+
+    padding: 0;
+
+    background: transparent;
+
+    text-align: center;
+
+    line-height: 0;
+}
+
+
+.top-image {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 760px;
+
+    aspect-ratio: 1 / 1;
 
     height: auto;
 
-    aspect-ratio: 1527 / 599;
-
     margin: 0 auto;
 
-    display: block;
-}
+    padding: 0;
 
+    object-fit: cover;
 
-.main-visual {
+    border: none;
 
-    margin: 0;
+    border-radius: 0;
 
-    line-height: 1;
-}
+    box-shadow: none;
 
-
-.sub-name {
-
-    display: block;
-
-    margin-top: 1rem;
-
-    font-family:
-        "Times New Roman",
-        Times,
-        serif;
-
-    font-size: 1.15rem;
-
-    letter-spacing: 0.25rem;
-
-    font-weight: 300;
-
-    color: var(--dark);
-
-    opacity: 0.8;
+    background: transparent;
 }
 
 
@@ -1309,6 +1270,47 @@ h2 {
 
 @media (max-width: 768px) {
 
+    /* -----------------------------------------
+       TOP IMAGE
+
+       スマホでは画面幅いっぱい。
+       1:1なので高さも画面幅と同じ。
+       ----------------------------------------- */
+
+    .top-header {
+
+        width: 100%;
+
+        margin: 0;
+
+        padding: 0;
+    }
+
+
+    .top-image {
+
+        width: 100%;
+
+        max-width: none;
+
+        aspect-ratio: 1 / 1;
+
+        height: auto;
+
+        margin: 0;
+
+        padding: 0;
+
+        object-fit: cover;
+
+        border-radius: 0;
+
+        border: none;
+
+        box-shadow: none;
+    }
+
+
     .news-area-grid {
 
         grid-template-columns: 1fr;
@@ -1436,18 +1438,30 @@ h2 {
 
 @media (max-width: 480px) {
 
-    header {
+    /*
+       TOP IMAGE
 
-        padding:
-            4rem
-            1rem
-            3rem;
-    }
+       480px以下でも画面いっぱい。
+       max-widthを設定しない。
+    */
 
+    .top-image {
 
-    .header-logo {
+        width: 100%;
 
-        max-width: 280px;
+        max-width: none;
+
+        aspect-ratio: 1 / 1;
+
+        height: auto;
+
+        margin: 0;
+
+        border-radius: 0;
+
+        border: none;
+
+        box-shadow: none;
     }
 
 
