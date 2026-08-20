@@ -102,42 +102,95 @@ body {
 }
 
 
+/* =========================================================
+   Back Link
+   ========================================================= */
+
 .back-link {
 
-    display: inline-block;
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
 
     color:
         var(--dark);
 
     text-decoration: none;
 
-    font-size: 0.75rem;
+    font-size:
+        0.72rem;
 
-    font-weight: 600;
+    font-weight:
+        700;
 
     letter-spacing:
-        0.08rem;
+        0.12rem;
 
     padding:
         8px
-        0;
+        0
+        9px;
 
     transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
+        color 0.25s ease,
+        transform 0.25s ease;
 
 }
 
+
+/* 下のアクセントライン */
+
+.back-link::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 0;
+
+    height: 1px;
+
+    background:
+        var(--primary);
+
+    transition:
+        width 0.3s ease;
+
+}
+
+
+/* Hover */
 
 .back-link:hover {
 
-    opacity: 0.65;
+    color:
+        var(--primary);
 
     transform:
-        translateX(-3px);
+        translateX(-4px);
 
 }
 
+
+.back-link:hover::after {
+
+    width:
+        100%;
+
+}
+
+
+/* =========================================================
+   History Header Title
+   ========================================================= */
 
 .history-header-title {
 
@@ -155,14 +208,17 @@ body {
 
     display: block;
 
-    margin-bottom: 0.5rem;
+    margin-bottom:
+        0.5rem;
 
-    font-size: 0.6rem;
+    font-size:
+        0.6rem;
 
     color:
         var(--primary);
 
-    font-weight: 700;
+    font-weight:
+        700;
 
     letter-spacing:
         0.18rem;
@@ -179,9 +235,11 @@ body {
     color:
         var(--dark);
 
-    font-size: 2rem;
+    font-size:
+        2rem;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
     letter-spacing:
         0.25rem;
@@ -199,7 +257,8 @@ body {
     color:
         var(--text);
 
-    font-size: 0.75rem;
+    font-size:
+        0.75rem;
 
     letter-spacing:
         0.15rem;
@@ -260,7 +319,8 @@ body {
 
 .history-year:last-child {
 
-    margin-bottom: 0;
+    margin-bottom:
+        0;
 
 }
 
@@ -312,7 +372,7 @@ body {
    ↓
    出来事カード
 
-   の縦並びにする
+   の縦並び。
 */
 
 .history-item {
@@ -347,7 +407,8 @@ body {
 
 .history-item:last-child {
 
-    margin-bottom: 0;
+    margin-bottom:
+        0;
 
 }
 
@@ -419,8 +480,8 @@ body {
 /*
    出来事カード
 
-   左上の丸は完全に削除。
-   縦線も使用しない。
+   左上の丸なし。
+   縦線なし。
 */
 
 .history-event {
@@ -511,7 +572,8 @@ body {
 
     justify-content: center;
 
-    gap: 15px;
+    gap:
+        15px;
 
     margin:
         4rem
@@ -525,9 +587,11 @@ body {
 
     display: block;
 
-    width: 60px;
+    width:
+        60px;
 
-    height: 1px;
+    height:
+        1px;
 
     background:
         var(--line);
@@ -560,7 +624,8 @@ body {
 
 .history-footer {
 
-    text-align: center;
+    text-align:
+        center;
 
     padding:
         0
@@ -570,15 +635,23 @@ body {
 }
 
 
+/* =========================================================
+   Footer HOME Button
+   ========================================================= */
+
 .home-button {
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    min-width: 180px;
+    min-width:
+        180px;
 
     padding:
         13px
@@ -593,7 +666,8 @@ body {
     background:
         var(--dark);
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
     font-size:
         0.75rem;
@@ -632,6 +706,10 @@ body {
 }
 
 
+/* =========================================================
+   Copyright
+   ========================================================= */
+
 .copyright {
 
     margin:
@@ -650,7 +728,8 @@ body {
 
 .copyright-sub {
 
-    margin: 0;
+    margin:
+        0;
 
     font-size:
         0.65rem;
@@ -708,7 +787,29 @@ body {
     }
 
 
-    /* 年 */
+    /* -----------------------------------------
+       Back Link
+       ----------------------------------------- */
+
+    .back-link {
+
+        font-size:
+            0.7rem;
+
+        letter-spacing:
+            0.1rem;
+
+        padding:
+            7px
+            0
+            8px;
+
+    }
+
+
+    /* -----------------------------------------
+       Year
+       ----------------------------------------- */
 
     .history-year {
 
@@ -729,7 +830,9 @@ body {
     }
 
 
-    /* 日付 */
+    /* -----------------------------------------
+       Date
+       ----------------------------------------- */
 
     .history-date {
 
@@ -742,7 +845,9 @@ body {
     }
 
 
-    /* 出来事 */
+    /* -----------------------------------------
+       Event
+       ----------------------------------------- */
 
     .history-event {
 
@@ -874,6 +979,26 @@ body {
 
         width:
             40px;
+
+    }
+
+
+    /* -----------------------------------------
+       Back Link
+       ----------------------------------------- */
+
+    .back-link {
+
+        font-size:
+            0.68rem;
+
+        letter-spacing:
+            0.08rem;
+
+        padding:
+            6px
+            0
+            7px;
 
     }
 
