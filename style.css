@@ -116,6 +116,53 @@ body {
 
 }
 
+/* =========================================
+   HISTORY リンク
+   ========================================= */
+
+.top-header {
+    position: relative;
+}
+
+.history-link {
+    position: absolute;
+
+    top: 4%;
+    left: 65%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 10;
+
+    color: #fff;
+    text-decoration: none;
+
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+
+    text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.7),
+        0 0 10px rgba(0, 0, 0, 0.4);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.history-link:hover {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+    .history-link {
+        top: 4%;
+        left: 80%;
+    }
+
+}
 
 /* =========================================================
    Fade Animation
