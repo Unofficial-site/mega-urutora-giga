@@ -5,10 +5,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
-       HISTORY
-       ===================================================== */
-
     const historyList =
         document.getElementById("historyList");
 
@@ -18,7 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       年ごとのブロックを取得
+       年ごとに日付順に並び替え
+       
+       新しいもの
+       ↓
+       古いもの
        ===================================================== */
 
     const historyYears =
@@ -27,32 +27,15 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-    /* =====================================================
-       年ごとに処理
-       ===================================================== */
-
     historyYears.forEach(yearBlock => {
 
-        const items =
+        const historyItems =
             Array.from(
                 yearBlock.querySelectorAll(".history-item")
             );
 
 
-        if (!items.length) {
-            return;
-        }
-
-
-        /* =================================================
-           日付順に並び替え
-
-           新しい
-           ↓
-           古い
-           ================================================= */
-
-        items.sort((a, b) => {
+        historyItems.sort((a, b) => {
 
             const monthA =
                 Number(a.dataset.month) || 0;
@@ -83,38 +66,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         /* =================================================
            並び替えた記事を
-           「その年の中」に戻す
+           その年の中へ戻す
+           
+           history-end は触らない
            ================================================= */
 
-        items.forEach(item => {
+        historyItems.forEach(item => {
 
             yearBlock.appendChild(item);
 
         });
-
-    });
-
-
-    /* =====================================================
-       年ブロック自体も新しい順に並べる
-       ===================================================== */
-
-    historyYears.sort((a, b) => {
-
-        const yearA =
-            Number(a.dataset.year) || 0;
-
-        const yearB =
-            Number(b.dataset.year) || 0;
-
-        return yearB - yearA;
-
-    });
-
-
-    historyYears.forEach(yearBlock => {
-
-        historyList.appendChild(yearBlock);
 
     });
 
@@ -137,8 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         .filter(Boolean)
                 );
 
+
             relValues.add("noopener");
+
             relValues.add("noreferrer");
+
 
             link.setAttribute(
                 "rel",
