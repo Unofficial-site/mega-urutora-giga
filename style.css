@@ -64,21 +64,29 @@ body {
     background: #E6E6E6;
 }
 
-/* =========================================
-   HISTORY リンク
-   ========================================= */
+
+/* =========================================================
+   TOP HEADER
+   HISTORY / PRIVACY リンク
+   ========================================================= */
 
 .top-header {
     position: relative;
 }
 
+
+/* =========================================================
+   HISTORY リンク
+   ========================================================= */
+
 .history-link {
+
     position: absolute;
 
-    /* 画像の上から約1/4の位置 */
+    /* 画像の上部 */
     top: 4%;
 
-    /* 左1/4と2/4の境目あたり */
+    /* PC */
     left: 65%;
 
     transform: translate(-50%, -50%);
@@ -86,59 +94,13 @@ body {
     z-index: 10;
 
     color: #fff;
+
     text-decoration: none;
 
     font-size: clamp(1rem, 2vw, 1.5rem);
+
     font-weight: 700;
-    letter-spacing: 0.12em;
 
-    /* 見やすくするための影 */
-    text-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.7),
-        0 0 10px rgba(0, 0, 0, 0.4);
-
-    transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
-}
-
-.history-link:hover {
-    opacity: 0.7;
-    transform: translate(-50%, -50%) scale(1.05);
-}
-
-@media (max-width: 768px) {
-
-    .history-link {
-        top: 4%;
-        left: 80%;
-    }
-
-}
-
-/* =========================================
-   HISTORY リンク
-   ========================================= */
-
-.top-header {
-    position: relative;
-}
-
-.history-link {
-    position: absolute;
-
-    top: 4%;
-    left: 65%;
-
-    transform: translate(-50%, -50%);
-
-    z-index: 10;
-
-    color: #fff;
-    text-decoration: none;
-
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    font-weight: 700;
     letter-spacing: 0.12em;
 
     text-shadow:
@@ -150,19 +112,64 @@ body {
         transform 0.2s ease;
 }
 
+
 .history-link:hover {
+
     opacity: 0.7;
-    transform: translate(-50%, -50%) scale(1.05);
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.05);
 }
 
-@media (max-width: 768px) {
 
-    .history-link {
-        top: 4%;
-        left: 80%;
-    }
+/* =========================================================
+   PRIVACY リンク
+   ========================================================= */
 
+.privacy-link {
+
+    position: absolute;
+
+    /* HISTORYと同じ高さ */
+    top: 4%;
+
+    /* HISTORYの右側 */
+    left: 82%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 10;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: clamp(1rem, 2vw, 1.5rem);
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.7),
+        0 0 10px rgba(0, 0, 0, 0.4);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
 }
+
+
+.privacy-link:hover {
+
+    opacity: 0.7;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.05);
+}
+
 
 /* =========================================================
    Fade Animation
@@ -199,13 +206,16 @@ body {
     animation-delay: 0.1s;
 }
 
+
 .delay-2 {
     animation-delay: 0.2s;
 }
 
+
 .delay-3 {
     animation-delay: 0.3s;
 }
+
 
 .delay-4 {
     animation-delay: 0.4s;
@@ -311,6 +321,7 @@ body {
 
    ※この画像だけ角丸なし
 */
+
 
 .top-header {
 
@@ -1410,6 +1421,36 @@ h2 {
     }
 
 
+    /* =================================================
+       HISTORY
+       ================================================= */
+
+    .history-link {
+
+        top: 4%;
+
+        left: 68%;
+
+        font-size:
+            clamp(0.85rem, 3.5vw, 1.2rem);
+    }
+
+
+    /* =================================================
+       PRIVACY
+       ================================================= */
+
+    .privacy-link {
+
+        top: 4%;
+
+        left: 88%;
+
+        font-size:
+            clamp(0.85rem, 3.5vw, 1.2rem);
+    }
+
+
     .news-area-grid {
 
         grid-template-columns: 1fr;
@@ -1578,7 +1619,27 @@ h2 {
 }
 
 
+/* =========================================================
+   Very Small Mobile
+   ========================================================= */
+
 @media (max-width: 380px) {
+
+    .history-link {
+
+        left: 65%;
+
+        font-size: 0.8rem;
+    }
+
+
+    .privacy-link {
+
+        left: 90%;
+
+        font-size: 0.8rem;
+    }
+
 
     .news-box {
 
