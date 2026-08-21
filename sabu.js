@@ -3,9 +3,7 @@
    HISTORY / 活動歴ページ
    ========================================================= */
 
-
 document.addEventListener("DOMContentLoaded", () => {
-
 
     /* =====================================================
        HISTORY
@@ -14,177 +12,109 @@ document.addEventListener("DOMContentLoaded", () => {
     const historyList =
         document.getElementById("historyList");
 
-
     if (!historyList) {
         return;
     }
 
 
     /* =====================================================
-       HISTORY ITEM取得
+       年ごとのブロックを取得
        ===================================================== */
 
-    const historyItems =
+    const historyYears =
         Array.from(
-            historyList.querySelectorAll(
-                ".history-item"
-            )
+            historyList.querySelectorAll(".history-year")
         );
 
 
-    if (!historyItems.length) {
-        return;
-    }
-
-
     /* =====================================================
-       日付順に並び替え
-       
-       新しいもの
-       ↓
-       古いもの
-       
-       2026
-       2025
-       2024
-       ...
+       年ごとに処理
        ===================================================== */
 
-    historyItems.sort((a, b) => {
+    historyYears.forEach(yearBlock => {
+
+        const items =
+            Array.from(
+                yearBlock.querySelectorAll(".history-item")
+            );
 
 
-        const yearA =
-            Number(
-                a.dataset.year
-            ) || 0;
-
-
-        const monthA =
-            Number(
-                a.dataset.month
-            ) || 0;
-
-
-        const dayA =
-            Number(
-                a.dataset.day
-            ) || 0;
-
-
-        const yearB =
-            Number(
-                b.dataset.year
-            ) || 0;
-
-
-        const monthB =
-            Number(
-                b.dataset.month
-            ) || 0;
-
-
-        const dayB =
-            Number(
-                b.dataset.day
-            ) || 0;
-
-
-        /* 年 */
-
-        if (yearA !== yearB) {
-
-            return yearB - yearA;
-
-        }
-
-
-        /* 月 */
-
-        if (monthA !== monthB) {
-
-            return monthB - monthA;
-
-        }
-
-
-        /* 日 */
-
-        return dayB - dayA;
-
-    });
-
-
-    /* =====================================================
-       並び替えたものをHTMLへ戻す
-       ===================================================== */
-
-    historyItems.forEach(item => {
-
-        historyList.appendChild(item);
-
-    });
-
-
-    /* =====================================================
-       年の判別
-
-       年自体は画面には表示しません。
-
-       ただし各記事に
-
-       data-year="2026"
-
-       があるので、JavaScript側では
-       何年の記事なのか判別できます。
-       ===================================================== */
-
-    let currentYear = null;
-
-
-    historyItems.forEach(item => {
-
-
-        const year =
-            item.dataset.year;
-
-
-        if (!year) {
+        if (!items.length) {
             return;
         }
 
 
-        /*
+        /* =================================================
+           日付順に並び替え
 
-           例えば
+           新しい
+           ↓
+           古い
+           ================================================= */
 
-           2026
-           2026
-           2026
-           2025
-           2025
-           2024
+        items.sort((a, b) => {
 
-           のように並んでいることを確認。
+            const monthA =
+                Number(a.dataset.month) || 0;
 
-        */
+            const dayA =
+                Number(a.dataset.day) || 0;
 
+            const monthB =
+                Number(b.dataset.month) || 0;
 
-        if (currentYear === null) {
-
-            currentYear = year;
-
-        }
+            const dayB =
+                Number(b.dataset.day) || 0;
 
 
-        /*
-         * 年が変わった場合
-         */
+            /* 月 */
 
-        if (currentYear !== year) {
+            if (monthA !== monthB) {
+                return monthB - monthA;
+            }
 
-            currentYear = year;
 
-        }
+            /* 日 */
+
+            return dayB - dayA;
+
+        });
+
+
+        /* =================================================
+           並び替えた記事を
+           「その年の中」に戻す
+           ================================================= */
+
+        items.forEach(item => {
+
+            yearBlock.appendChild(item);
+
+        });
+
+    });
+
+
+    /* =====================================================
+       年ブロック自体も新しい順に並べる
+       ===================================================== */
+
+    historyYears.sort((a, b) => {
+
+        const yearA =
+            Number(a.dataset.year) || 0;
+
+        const yearB =
+            Number(b.dataset.year) || 0;
+
+        return yearB - yearA;
+
+    });
+
+
+    historyYears.forEach(yearBlock => {
+
+        historyList.appendChild(yearBlock);
 
     });
 
@@ -194,15 +124,11 @@ document.addEventListener("DOMContentLoaded", () => {
        ===================================================== */
 
     document
-        .querySelectorAll(
-            'a[target="_blank"]'
-        )
+        .querySelectorAll('a[target="_blank"]')
         .forEach(link => {
-
 
             const rel =
                 link.getAttribute("rel") || "";
-
 
             const relValues =
                 new Set(
@@ -211,11 +137,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         .filter(Boolean)
                 );
 
-
             relValues.add("noopener");
-
             relValues.add("noreferrer");
-
 
             link.setAttribute(
                 "rel",
@@ -223,6 +146,5 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
         });
-
 
 });
