@@ -92,7 +92,7 @@ body {
     background-color: #FFFFFF;
     color: var(--dark);
 
-    /* 上下 8px、左右 16px（厚みをしっかり出す） */
+    /* 上下 8px、左右 16px */
     padding: 8px 16px; 
     line-height: 1.2;
 
@@ -105,31 +105,34 @@ body {
     letter-spacing: 0.08em;
 
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-    
-    /* 位置の基準（中央合わせ）を通常時から設定 */
-    transform: translate(-50%, -50%);
     transition: all 0.2s ease;
+}
+
+/* HISTORY ボタン（右端を基準位置に配置） */
+.history-link {
+    left: 55%;
+    transform: translate(-100%, -50%);
+}
+
+/* PRIVACY ボタン（HISTORYの右側に隙間19pxで配置） */
+.privacy-link {
+    left: 55%;
+    transform: translate(0, -50%);
+    margin-left: 19px; /* 間隔をぴったり19pxに指定 */
 }
 
 .nav-btn:hover {
     background-color: #F8F7F6;
     border-color: var(--primary);
-    
-    /* 通常時の translate(-50%, -50%) を維持したまま拡大 */
-    transform: translate(-50%, -50%) scale(1.05);
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* HISTORY ボタン位置 */
-.history-link {
-    left: 55%;
-    transform: translate(-50%, -50%);
+.history-link:hover {
+    transform: translate(-100%, -50%) scale(1.05);
 }
 
-/* PRIVACY ボタン位置 */
-.privacy-link {
-    left: 68%;
-    transform: translate(-50%, -50%);
+.privacy-link:hover {
+    transform: translate(0, -50%) scale(1.05);
 }
 
 
@@ -1325,15 +1328,16 @@ h2 {
         box-shadow: none;
     }
 
-    /* スマホ時のボタン位置 */
+    /* スマホ時のボタン位置（52%で揃えて間隔19pxを維持） */
     .history-link {
         top: 4%;
-        left: 65%;
+        left: 52%;
     }
 
     .privacy-link {
         top: 4%;
-        left: 88%;
+        left: 52%;
+        margin-left: 19px;
     }
 
     .news-area-grid {
@@ -1457,13 +1461,14 @@ h2 {
 @media (max-width: 380px) {
 
     .history-link {
-        left: 60%;
+        left: 48%;
         padding: 4px 10px;
     }
 
     .privacy-link {
-        left: 88%;
+        left: 48%;
         padding: 4px 10px;
+        margin-left: 19px;
     }
 
     .news-box {
