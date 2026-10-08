@@ -66,132 +66,65 @@ body {
 
 
 /* =========================================================
-   TOP HEADER
-   HISTORY / PRIVACY リンク
+   TOP HEADER & NAV BUTTONS (白い長方形ボタン)
    ========================================================= */
 
 .top-header {
     position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    text-align: center;
+    line-height: 0;
 }
 
+/* 共通長方形ボタン（白背景） */
+.nav-btn {
+    position: absolute;
+    top: 4%;
+    z-index: 10;
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-/* =========================================================
-   HISTORY リンク
-   ========================================================= */
+    background-color: #FFFFFF;
+    color: var(--dark);
 
+    padding: 6px 14px;
+    border-radius: 4px;
+    border: 1px solid #FFFFFF;
+
+    text-decoration: none;
+    font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+    background-color: #F8F7F6;
+    border-color: var(--primary);
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* HISTORY ボタン位置 */
 .history-link {
-
-    position: absolute;
-
-    /* 画像の上部 */
-    top: 4%;
-
-    /* PC */
     left: 55%;
-
     transform: translate(-50%, -50%);
-
-    z-index: 10;
-
-    color: #fff;
-
-    text-decoration: none;
-
-    font-size: clamp(1rem, 2vw, 1.5rem);
-
-    font-weight: 700;
-
-    letter-spacing: 0.12em;
-
-    text-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.7),
-        0 0 10px rgba(0, 0, 0, 0.4);
-
-    transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
 }
 
-
-.history-link:hover {
-
-    opacity: 0.7;
-
-    transform:
-        translate(-50%, -50%)
-        scale(1.05);
-}
-
-
-/* =========================================================
-   PRIVACY リンク
-   ========================================================= */
-
+/* PRIVACY ボタン位置 */
 .privacy-link {
-
-    position: absolute;
-
-    /* HISTORYと同じ高さ */
-    top: 4%;
-
-    /* HISTORYの右側 */
-    left: 65%;
-
+    left: 68%;
     transform: translate(-50%, -50%);
-
-    z-index: 10;
-
-    color: #fff;
-
-    text-decoration: none;
-
-    font-size: clamp(1rem, 2vw, 1.5rem);
-
-    font-weight: 700;
-
-    letter-spacing: 0.12em;
-
-    text-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.7),
-        0 0 10px rgba(0, 0, 0, 0.4);
-
-    transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
 }
 
 
-.privacy-link:hover {
-
-    opacity: 0.7;
-
-    transform:
-        translate(-50%, -50%)
-        scale(1.05);
-}
-
-/* =========================================================
-   スマホ用 HISTORY / PRIVACY
-   ========================================================= */
-
-/* @media (max-width: 768px) {
-
-    .history-link {
-
-        top: 4%;
-        left: 72%;
-
-    }
-
-
-    .privacy-link {
-
-        top: 4%;
-        left: 92%;
-
-    }
-
-} */
 /* =========================================================
    Fade Animation
    ========================================================= */
@@ -322,43 +255,8 @@ body {
 
 
 /* =========================================================
-   Header
+   Header Image
    ========================================================= */
-
-/*
-   上部メイン画像
-
-   スマホ：
-   - 画面幅いっぱい
-   - 1:1
-   - 上端ぴったり
-   - 横方向の余白なし
-
-   PC：
-   - 最大760px
-   - 横中央
-   - 1:1
-   - 上端ぴったり
-
-   ※この画像だけ角丸なし
-*/
-
-
-.top-header {
-
-    width: 100%;
-
-    margin: 0;
-
-    padding: 0;
-
-    background: transparent;
-
-    text-align: center;
-
-    line-height: 0;
-}
-
 
 .top-image {
 
@@ -532,7 +430,6 @@ body {
 
 /* =========================================================
    NEWS Box
-   PC = 画像左 / 文章右
    ========================================================= */
 
 .news-box {
@@ -1396,155 +1293,88 @@ h2 {
 
 
 /* =========================================================
-   Mobile
+   Mobile (768px以下)
    ========================================================= */
 
 @media (max-width: 768px) {
 
-    /* -----------------------------------------
-       TOP IMAGE
-
-       スマホでは画面幅いっぱい。
-       1:1なので高さも画面幅と同じ。
-       ----------------------------------------- */
-
     .top-header {
-
         width: 100%;
-
         margin: 0;
-
         padding: 0;
     }
 
-
     .top-image {
-
         width: 100%;
-
         max-width: none;
-
         aspect-ratio: 1 / 1;
-
         height: auto;
-
         margin: 0;
-
         padding: 0;
-
         object-fit: cover;
-
         border-radius: 0;
-
         border: none;
-
         box-shadow: none;
     }
 
-
-    /* =================================================
-       HISTORY
-       ================================================= */
-
+    /* スマホ時のボタン位置 */
     .history-link {
-
         top: 4%;
-
-        left: 68%;
-
-        font-size:
-            clamp(0.85rem, 3.5vw, 1.2rem);
+        left: 65%;
     }
-
-
-    /* =================================================
-       PRIVACY
-       ================================================= */
 
     .privacy-link {
-
         top: 4%;
-
         left: 88%;
-
-        font-size:
-            clamp(0.85rem, 3.5vw, 1.2rem);
     }
 
-
     .news-area-grid {
-
         grid-template-columns: 1fr;
-
         gap: 2.5rem;
     }
 
-
-    /*
-       スマホでは POST → NEWS
-    */
-
+    /* スマホでは POST → NEWS */
     .x-column {
         order: 1;
     }
-
 
     .news-column {
         order: 2;
     }
 
-
     /* NEWS */
-
     .news-box {
-
         grid-template-columns:
             90px
             minmax(0, 1fr);
-
         column-gap: 12px;
     }
 
-
     .news-image,
     .newsss-image {
-
         width: 90px;
-
         min-width: 90px;
     }
 
-
     .news-image img,
     .newsss-image img {
-
         width: 90px;
-
         height: 90px;
     }
 
-
     .news-title {
-
         font-size: 0.82rem;
-
         line-height: 1.55;
     }
 
-
     .news-text {
-
         font-size: 0.75rem;
-
         line-height: 1.6;
     }
 
-
     .news-date {
-
         font-size: 0.7rem;
     }
-
 
     .news-frame {
         height: 430px;
@@ -1554,86 +1384,58 @@ h2 {
 
 
 /* =========================================================
-   Small Mobile
+   Small Mobile (580px以下)
    ========================================================= */
 
 @media (max-width: 580px) {
 
     .container {
-
         padding:
             1rem
             1.2rem
             2rem;
     }
 
-
     .section-block {
-
         padding:
             2rem
             1.5rem;
-
         margin-bottom: 2rem;
     }
 
-
     .btn-grid {
-
         grid-template-columns: 1fr;
     }
 
-
     .btn-contact {
-
-        grid-column:
-            span 1;
+        grid-column: span 1;
     }
 
 }
 
 
 /* =========================================================
-   Very Small Mobile
+   Very Small Mobile (480px以下)
    ========================================================= */
 
 @media (max-width: 480px) {
 
-    /*
-       TOP IMAGE
-
-       480px以下でも画面いっぱい。
-       max-widthを設定しない。
-    */
-
     .top-image {
-
         width: 100%;
-
         max-width: none;
-
         aspect-ratio: 1 / 1;
-
         height: auto;
-
         margin: 0;
-
         border-radius: 0;
-
         border: none;
-
         box-shadow: none;
     }
 
-
     .gallery-container {
-
         max-width: 240px;
     }
 
-
     .gallery-swiper img {
-
         max-height: 300px;
     }
 
@@ -1641,63 +1443,45 @@ h2 {
 
 
 /* =========================================================
-   Very Small Mobile
+   Ultra Small Mobile (380px以下)
    ========================================================= */
 
 @media (max-width: 380px) {
 
     .history-link {
-
-        left: 65%;
-
-        font-size: 0.8rem;
+        left: 60%;
+        padding: 4px 10px;
     }
-
 
     .privacy-link {
-
-        left: 90%;
-
-        font-size: 0.8rem;
+        left: 88%;
+        padding: 4px 10px;
     }
 
-
     .news-box {
-
         grid-template-columns:
             75px
             minmax(0, 1fr);
-
         column-gap: 10px;
     }
 
-
     .news-image,
     .newsss-image {
-
         width: 75px;
-
         min-width: 75px;
     }
 
-
     .news-image img,
     .newsss-image img {
-
         width: 75px;
-
         height: 75px;
     }
 
-
     .news-title {
-
         font-size: 0.78rem;
     }
 
-
     .news-text {
-
         font-size: 0.72rem;
     }
 
@@ -1709,6 +1493,5 @@ h2 {
    ========================================================= */
 
 include-html {
-
     display: contents;
 }
