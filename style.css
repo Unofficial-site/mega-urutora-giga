@@ -66,7 +66,8 @@ body {
 
 
 /* =========================================================
-   TOP HEADER & NAV BUTTONS (右寄せ・隙間/右端余白 19px)
+   TOP HEADER & NAV BUTTONS
+   (joubu.webpの右端から19px、ボタン間19px)
    ========================================================= */
 
 .top-header {
@@ -77,6 +78,22 @@ body {
     background: transparent;
     text-align: center;
     line-height: 0;
+}
+
+/* ヘッダー画像 (max-width: 760px) */
+.top-image {
+    display: block;
+    width: 100%;
+    max-width: 760px;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+    object-fit: cover;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
 }
 
 /* 共通長方形ボタン（白背景） */
@@ -108,16 +125,16 @@ body {
     transition: all 0.2s ease;
 }
 
-/* PRIVACYボタン（ヘッダー右端から19px） */
+/* PRIVACYボタン (joubu.webpの右端から19px) */
 .privacy-link {
-    right: 19px;
+    right: calc(50% - 380px + 19px);
     left: auto;
     transform: translateY(0);
 }
 
-/* HISTORYボタン（PRIVACYの左側に19px開けて配置） */
+/* HISTORYボタン (PRIVACYの左側に19px開けて配置) */
 .history-link {
-    right: calc(19px + 100% + 19px); /* 右端19px + PRIVACY幅 + 隙間19px */
+    right: calc(50% - 380px + 19px + 100% + 19px);
     left: auto;
     transform: translateY(0);
 }
@@ -256,38 +273,6 @@ body {
     box-shadow:
         0 14px 28px rgba(109, 94, 125, 0.12),
         0 3px 8px rgba(0, 0, 0, 0.04);
-}
-
-
-/* =========================================================
-   Header Image
-   ========================================================= */
-
-.top-image {
-
-    display: block;
-
-    width: 100%;
-
-    max-width: 760px;
-
-    aspect-ratio: 1 / 1;
-
-    height: auto;
-
-    margin: 0 auto;
-
-    padding: 0;
-
-    object-fit: cover;
-
-    border: none;
-
-    border-radius: 0;
-
-    box-shadow: none;
-
-    background: transparent;
 }
 
 
@@ -1298,7 +1283,7 @@ h2 {
 
 
 /* =========================================================
-   Mobile (768px以下)
+   Mobile (768px以下 - 画像が画面幅いっぱいに拡大された際)
    ========================================================= */
 
 @media (max-width: 768px) {
@@ -1322,7 +1307,7 @@ h2 {
         box-shadow: none;
     }
 
-    /* スマホ時のボタン位置（右端19px固定維持） */
+    /* スマホ画面幅(100%)の右端から19px基準に配置 */
     .privacy-link {
         top: 4%;
         right: 19px;
@@ -1454,7 +1439,7 @@ h2 {
 @media (max-width: 380px) {
 
     .nav-btn {
-        padding: 4px 10px; /* 超小型画面で文字溢れを防ぐため内側余白のみ少し調整 */
+        padding: 4px 10px;
     }
 
     .privacy-link {
