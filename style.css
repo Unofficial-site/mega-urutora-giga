@@ -66,7 +66,7 @@ body {
 
 
 /* =========================================================
-   TOP HEADER & NAV BUTTONS (白い長方形ボタン)
+   TOP HEADER & NAV BUTTONS (右寄せ・隙間/右端余白 19px)
    ========================================================= */
 
 .top-header {
@@ -108,31 +108,25 @@ body {
     transition: all 0.2s ease;
 }
 
-/* HISTORY ボタン（右端を基準位置に配置） */
-.history-link {
-    left: 55%;
-    transform: translate(-100%, -50%);
+/* PRIVACYボタン（ヘッダー右端から19px） */
+.privacy-link {
+    right: 19px;
+    left: auto;
+    transform: translateY(0);
 }
 
-/* PRIVACY ボタン（HISTORYの右側に隙間19pxで配置） */
-.privacy-link {
-    left: 55%;
-    transform: translate(0, -50%);
-    margin-left: 19px; /* 間隔をぴったり19pxに指定 */
+/* HISTORYボタン（PRIVACYの左側に19px開けて配置） */
+.history-link {
+    right: calc(19px + 100% + 19px); /* 右端19px + PRIVACY幅 + 隙間19px */
+    left: auto;
+    transform: translateY(0);
 }
 
 .nav-btn:hover {
     background-color: #F8F7F6;
     border-color: var(--primary);
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
-}
-
-.history-link:hover {
-    transform: translate(-100%, -50%) scale(1.05);
-}
-
-.privacy-link:hover {
-    transform: translate(0, -50%) scale(1.05);
+    transform: translateY(-2px) scale(1.03);
 }
 
 
@@ -1328,16 +1322,15 @@ h2 {
         box-shadow: none;
     }
 
-    /* スマホ時のボタン位置（52%で揃えて間隔19pxを維持） */
-    .history-link {
-        top: 4%;
-        left: 52%;
-    }
-
+    /* スマホ時のボタン位置（右端19px固定維持） */
     .privacy-link {
         top: 4%;
-        left: 52%;
-        margin-left: 19px;
+        right: 19px;
+    }
+
+    .history-link {
+        top: 4%;
+        right: calc(19px + 100% + 19px);
     }
 
     .news-area-grid {
@@ -1460,15 +1453,16 @@ h2 {
 
 @media (max-width: 380px) {
 
-    .history-link {
-        left: 48%;
-        padding: 4px 10px;
+    .nav-btn {
+        padding: 4px 10px; /* 超小型画面で文字溢れを防ぐため内側余白のみ少し調整 */
     }
 
     .privacy-link {
-        left: 48%;
-        padding: 4px 10px;
-        margin-left: 19px;
+        right: 12px;
+    }
+
+    .history-link {
+        right: calc(12px + 100% + 12px);
     }
 
     .news-box {
