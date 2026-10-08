@@ -67,12 +67,14 @@ body {
 
 /* =========================================================
    TOP HEADER & NAV BUTTONS 
-   (joubu.webpの上部・右端19px、ボタン間19px)
+   (joubu.webpの上部19px・右端19px、ボタン間19px)
    ========================================================= */
 
+/* 親枠を画像と同じ幅(max-width: 760px)で中央配置 */
 .top-header {
     position: relative;
     width: 100%;
+    max-width: 760px;
     margin: 0 auto;
     padding: 0;
     background: transparent;
@@ -80,7 +82,7 @@ body {
     line-height: 0;
 }
 
-/* ヘッダー画像 (max-width: 760px) */
+/* ヘッダー画像 */
 .top-image {
     display: block;
     width: 100%;
@@ -96,28 +98,12 @@ body {
     background: transparent;
 }
 
-/* 画像と同じ幅 (max-width: 760px) で画像の真上にぴったり重ねるコンテナ */
-.nav-btn-container {
-    position: absolute;
-    top: 19px;                  /* 画像の上端からの位置 */
-    left: 50%;
-    transform: translateX(-50%); /* 中央寄せされた画像と幅を完全に一致させる */
-    width: 100%;
-    max-width: 760px;
-    z-index: 10;
-
-    display: flex;
-    justify-content: flex-end;   /* 右寄せ */
-    align-items: center;
-    gap: 19px;                   /* HISTORYとPRIVACYの間隔 19px */
-    padding-right: 19px;         /* 画像右端からの間隔 19px */
-    box-sizing: border-box;
-    pointer-events: none;        /* 下の画像操作を邪魔しない */
-}
-
 /* 共通長方形ボタン（白背景） */
 .nav-btn {
-    pointer-events: auto;        /* ボタン自体のクリックを有効化 */
+    position: absolute;
+    top: 19px;                  /* 画像の上端から 19px */
+    z-index: 10;
+    
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -141,11 +127,33 @@ body {
     transition: all 0.2s ease;
 }
 
+/* PRIVACYボタン（joubu.webpの右端から 19px） */
+.privacy-link {
+    right: 19px;
+    left: auto;
+    transform: none;
+}
+
+/* HISTORYボタン（PRIVACYボタンの左側に 19px の隙間を開けて配置） */
+.history-link {
+    right: 19px;
+    left: auto;
+    /* ボタン自体の右端から「PRIVACYの横幅 + 19px」分だけ左に移動 */
+    transform: translateX(calc(-100% - 19px));
+}
+
 .nav-btn:hover {
     background-color: #F8F7F6;
     border-color: var(--primary);
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.privacy-link:hover {
     transform: translateY(-2px) scale(1.03);
+}
+
+.history-link:hover {
+    transform: translateX(calc(-100% - 19px)) translateY(-2px) scale(1.03);
 }
 
 
@@ -1285,7 +1293,7 @@ h2 {
 
 
 /* =========================================================
-   Mobile (768px以下 - 画像が画面幅いっぱいに拡大された際)
+   Mobile (768px以下)
    ========================================================= */
 
 @media (max-width: 768px) {
@@ -1429,14 +1437,22 @@ h2 {
 
 @media (max-width: 380px) {
 
-    .nav-btn-container {
+    .nav-btn {
         top: 12px;
-        gap: 12px;           /* 画面が極端に小さい時の隙間 */
-        padding-right: 12px; /* 画面が極端に小さい時の右端余白 */
+        padding: 4px 10px;
     }
 
-    .nav-btn {
-        padding: 4px 10px;
+    .privacy-link {
+        right: 12px;
+    }
+
+    .history-link {
+        right: 12px;
+        transform: translateX(calc(-100% - 12px));
+    }
+
+    .history-link:hover {
+        transform: translateX(calc(-100% - 12px)) translateY(-2px) scale(1.03);
     }
 
     .news-box {
