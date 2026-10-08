@@ -66,8 +66,7 @@ body {
 
 
 /* =========================================================
-   TOP HEADER & NAV BUTTONS
-   (joubu.webpの右端から19px、ボタン間19px)
+   TOP HEADER & NAV BUTTONS (joubu.webp右端から19px、間隔19px)
    ========================================================= */
 
 .top-header {
@@ -96,12 +95,26 @@ body {
     background: transparent;
 }
 
-/* 共通長方形ボタン（白背景） */
-.nav-btn {
+/* 画像と同じ幅 (max-width: 760px) で中央配置し、ボタンを右寄せにする枠 */
+.nav-btn-container {
     position: absolute;
     top: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 760px;
     z-index: 10;
-    
+
+    display: flex;
+    justify-content: flex-end; /* 右寄せ */
+    align-items: center;
+    gap: 19px;                 /* HISTORYとPRIVACYの間隔 19px */
+    padding-right: 19px;       /* joubu.webp 右端からの余白 19px */
+    box-sizing: border-box;
+}
+
+/* 共通長方形ボタン（白背景） */
+.nav-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -123,20 +136,6 @@ body {
 
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     transition: all 0.2s ease;
-}
-
-/* PRIVACYボタン (joubu.webpの右端から19px) */
-.privacy-link {
-    right: calc(50% - 380px + 19px);
-    left: auto;
-    transform: translateY(0);
-}
-
-/* HISTORYボタン (PRIVACYの左側に19px開けて配置) */
-.history-link {
-    right: calc(50% - 380px + 19px + 100% + 19px);
-    left: auto;
-    transform: translateY(0);
 }
 
 .nav-btn:hover {
@@ -1307,17 +1306,6 @@ h2 {
         box-shadow: none;
     }
 
-    /* スマホ画面幅(100%)の右端から19px基準に配置 */
-    .privacy-link {
-        top: 4%;
-        right: 19px;
-    }
-
-    .history-link {
-        top: 4%;
-        right: calc(19px + 100% + 19px);
-    }
-
     .news-area-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -1438,16 +1426,13 @@ h2 {
 
 @media (max-width: 380px) {
 
+    .nav-btn-container {
+        gap: 12px;           /* 画面が極端に小さい時の隙間 */
+        padding-right: 12px; /* 画面が極端に小さい時の右端余白 */
+    }
+
     .nav-btn {
         padding: 4px 10px;
-    }
-
-    .privacy-link {
-        right: 12px;
-    }
-
-    .history-link {
-        right: calc(12px + 100% + 12px);
     }
 
     .news-box {
