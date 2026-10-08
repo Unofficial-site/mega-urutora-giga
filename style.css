@@ -66,13 +66,14 @@ body {
 
 
 /* =========================================================
-   TOP HEADER & NAV BUTTONS (joubu.webp右端から19px、間隔19px)
+   TOP HEADER & NAV BUTTONS 
+   (joubu.webpの上部・右端19px、ボタン間19px)
    ========================================================= */
 
 .top-header {
     position: relative;
     width: 100%;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     background: transparent;
     text-align: center;
@@ -95,26 +96,28 @@ body {
     background: transparent;
 }
 
-/* 画像と同じ幅 (max-width: 760px) で中央配置し、ボタンを右寄せにする枠 */
+/* 画像と同じ幅 (max-width: 760px) で画像の真上にぴったり重ねるコンテナ */
 .nav-btn-container {
     position: absolute;
-    top: 4%;
+    top: 19px;                  /* 画像の上端からの位置 */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* 中央寄せされた画像と幅を完全に一致させる */
     width: 100%;
     max-width: 760px;
     z-index: 10;
 
     display: flex;
-    justify-content: flex-end; /* 右寄せ */
+    justify-content: flex-end;   /* 右寄せ */
     align-items: center;
-    gap: 19px;                 /* HISTORYとPRIVACYの間隔 19px */
-    padding-right: 19px;       /* joubu.webp 右端からの余白 19px */
+    gap: 19px;                   /* HISTORYとPRIVACYの間隔 19px */
+    padding-right: 19px;         /* 画像右端からの間隔 19px */
     box-sizing: border-box;
+    pointer-events: none;        /* 下の画像操作を邪魔しない */
 }
 
 /* 共通長方形ボタン（白背景） */
 .nav-btn {
+    pointer-events: auto;        /* ボタン自体のクリックを有効化 */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1427,6 +1430,7 @@ h2 {
 @media (max-width: 380px) {
 
     .nav-btn-container {
+        top: 12px;
         gap: 12px;           /* 画面が極端に小さい時の隙間 */
         padding-right: 12px; /* 画面が極端に小さい時の右端余白 */
     }
