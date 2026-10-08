@@ -67,22 +67,20 @@ body {
 
 /* =========================================================
    TOP HEADER & NAV BUTTONS 
-   (joubu.webpの上部19px・右端19px、ボタン間19px)
+   (joubu.webp画像内の右上：上19px・右19px、ボタン間19px)
    ========================================================= */
 
-/* 親枠を画像と同じ幅(max-width: 760px)で中央配置 */
 .top-header {
     position: relative;
     width: 100%;
-    max-width: 760px;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     background: transparent;
     text-align: center;
     line-height: 0;
 }
 
-/* ヘッダー画像 */
+/* ヘッダー画像 (joubu.webp) */
 .top-image {
     display: block;
     width: 100%;
@@ -101,7 +99,7 @@ body {
 /* 共通長方形ボタン（白背景） */
 .nav-btn {
     position: absolute;
-    top: 19px;                  /* 画像の上端から 19px */
+    top: 19px; /* 画像の上端から19px */
     z-index: 10;
     
     display: inline-flex;
@@ -127,18 +125,17 @@ body {
     transition: all 0.2s ease;
 }
 
-/* PRIVACYボタン（joubu.webpの右端から 19px） */
+/* PRIVACYボタン（joubu.webpの右端から19px） */
 .privacy-link {
-    right: 19px;
+    right: calc(50% - 380px + 19px);
     left: auto;
     transform: none;
 }
 
-/* HISTORYボタン（PRIVACYボタンの左側に 19px の隙間を開けて配置） */
+/* HISTORYボタン（PRIVACYの左側に隙間19pxで配置） */
 .history-link {
-    right: 19px;
+    right: calc(50% - 380px + 19px);
     left: auto;
-    /* ボタン自体の右端から「PRIVACYの横幅 + 19px」分だけ左に移動 */
     transform: translateX(calc(-100% - 19px));
 }
 
@@ -1293,7 +1290,7 @@ h2 {
 
 
 /* =========================================================
-   Mobile (768px以下)
+   Mobile (768px以下：画像が画面幅いっぱいになった場合)
    ========================================================= */
 
 @media (max-width: 768px) {
@@ -1315,6 +1312,16 @@ h2 {
         border-radius: 0;
         border: none;
         box-shadow: none;
+    }
+
+    /* スマホ画面幅の右端から19pxに配置 */
+    .privacy-link {
+        right: 19px;
+    }
+
+    .history-link {
+        right: 19px;
+        transform: translateX(calc(-100% - 19px));
     }
 
     .news-area-grid {
