@@ -92,7 +92,10 @@ body {
     background-color: #FFFFFF;
     color: var(--dark);
 
-    padding: 10px 14px;
+    /* 上下 8px、左右 16px（厚みをしっかり出す） */
+    padding: 8px 16px; 
+    line-height: 1.2;
+
     border-radius: 4px;
     border: 1px solid #FFFFFF;
 
@@ -102,12 +105,17 @@ body {
     letter-spacing: 0.08em;
 
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    
+    /* 位置の基準（中央合わせ）を通常時から設定 */
+    transform: translate(-50%, -50%);
     transition: all 0.2s ease;
 }
 
 .nav-btn:hover {
     background-color: #F8F7F6;
     border-color: var(--primary);
+    
+    /* 通常時の translate(-50%, -50%) を維持したまま拡大 */
     transform: translate(-50%, -50%) scale(1.05);
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
 }
