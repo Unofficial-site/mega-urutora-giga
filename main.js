@@ -100,74 +100,33 @@ document.addEventListener("DOMContentLoaded", () => {
         ) {
 
             const updateNextPreview = () => {
-
-                const slides =
-                    document.querySelectorAll(
-                        ".gallery-swiper .swiper-slide"
-                    );
-
-
-                if (!slides.length) {
-                    return;
-                }
-
-
                 /*
-                 * Swiperのloopによる複製スライドを考慮して
-                 * 元のスライド数を取得
+                 * 重複スライド（duplicate）を除いた
+                 * 本来のオリジナルスライド一覧を取得
                  */
-
-                const totalSlides =
-                    gallerySwiper.slides.length;
-
-
-                if (!totalSlides) {
-                    return;
-                }
-
-
-                let nextIndex =
-                    gallerySwiper.realIndex + 1;
-
-
-                /*
-                 * 実際の元スライド数を超えたら最初へ
-                 */
-
                 const originalSlides =
                     document.querySelectorAll(
                         ".gallery-swiper .swiper-slide:not(.swiper-slide-duplicate)"
                     );
 
 
-                if (
-                    originalSlides.length &&
-                    nextIndex >= originalSlides.length
-                ) {
-
-                    nextIndex = 0;
-
+                if (!originalSlides.length) {
+                    return;
                 }
 
 
                 /*
-                 * 元スライドから次画像を取得
+                 * 現在のインデックス（realIndex）に +1 をして
+                 * 次の画像のインデックスを計算する
                  */
-
-                let nextSlide =
-                    originalSlides[nextIndex];
+                const total = originalSlides.length;
+                let nextIndex = (gallerySwiper.realIndex + 1) % total;
 
 
                 /*
-                 * 念のため取得できなかった場合
+                 * 次の画像が入っているスライド要素を取得
                  */
-
-                if (!nextSlide) {
-
-                    nextSlide =
-                        slides[nextIndex];
-
-                }
+                const nextSlide = originalSlides[nextIndex];
 
 
                 if (!nextSlide) {
@@ -184,6 +143,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 
+                /*
+                 * プレビューサムネイルの画像を次の画像に更新
+                 */
                 previewThumb.src =
                     nextImage.src;
 
@@ -194,6 +156,9 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
 
+            /*
+             * 初期化時とスライド変更時にプレビューを更新
+             */
             updateNextPreview();
 
 
